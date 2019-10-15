@@ -23,7 +23,23 @@ const getUserById = id => {
   });
 };
 
+const getUserByEmail = email => {
+  return new Promise((resolve, reject) => {
+    pool.query(
+      "SELECT * FROM  users WHERE email=$1",
+      [email],
+      (error, result) => {
+        if (error) {
+          console.error(error);
+          return reject(error);
+        }
+        resolve(result.rows[0]);
+      }
+    );
+  });
+};
 module.exports = {
   getUserById,
-  createUser
+  createUser,
+  getUserByEmail
 };
