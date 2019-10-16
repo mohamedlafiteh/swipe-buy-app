@@ -2,13 +2,46 @@ const { Pool } = require("pg");
 const config = require("../../config");
 const pool = new Pool(config);
 
-const createUser = ({ name, email, password, city }) => {
-  const client = pool.connect();
+const getUserByEmail = email => {
+  return new Promise(resolve => {
+    pool.query(
+      "SELECT * FROM users where email = $1",
+      [email],
+      (error, result) => {
+        resolve(result.rows[0]);
+      }
+    );
+  });
+};
 
-  const queryText =
-    "INSERT INTO users (name,email,password,city) values ($1, $2,$3,$4) RETURNING id";
+const createUser = ({ name, email, password }) => {
+  return getUserByEmail(email)
+    .then(users => {
+      return new Promise((resolve, reject) => {
+        if (users) {
+          reject("An account with the same email address already exists");
+        } else {
+          resolve();
+        }
+      });
+    })
+    .then(async () => {
+      const client = await pool.connect();
+      try {
+        await client.query("BEGIN");
+        const queryText =
+          "INSERT INTO users (name,email, password) values ($1,$2,$3) RETURNING id";
 
-  client.query(queryText, [name, email, password, city]);
+        const res = await client.query(queryText, [name, email, password]);
+
+        await client.query("COMMIT");
+      } catch (e) {
+        await client.query("ROLLBACK");
+        throw "Someting went wrong";
+      } finally {
+        client.release();
+      }
+    });
 };
 
 const getUserById = id => {
@@ -23,21 +56,6 @@ const getUserById = id => {
   });
 };
 
-const getUserByEmail = email => {
-  return new Promise((resolve, reject) => {
-    pool.query(
-      "SELECT * FROM  users WHERE email=$1",
-      [email],
-      (error, result) => {
-        if (error) {
-          console.error(error);
-          return reject(error);
-        }
-        resolve(result.rows[0]);
-      }
-    );
-  });
-};
 module.exports = {
   getUserById,
   createUser,

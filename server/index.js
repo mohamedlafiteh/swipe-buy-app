@@ -3,12 +3,13 @@ const app = express();
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const api = require("./api");
+const authRoute = require("./auth/Routes");
+
 const path = require("path");
 require("./auth/passport");
 const SERVER_PORT = process.env.PORT || 4000;
 
 //Import Routes
-const authRoute = require("./auth/Routes");
 // register Routes middle wares
 //app.use("/api/user", authRoute);
 //register middle wares
