@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Form, Input, Button, Segment, Grid, Header } from "semantic-ui-react";
 import { getToken } from "../api/getToken";
 
-export class Login extends Component {
+export class LoginForm extends Component {
   constructor() {
     super();
     this.state = {
@@ -21,7 +21,6 @@ export class Login extends Component {
     const { email, password } = this.state;
     getToken(email, password)
       .then(res => {
-        console.log(res.token);
         sessionStorage.setItem("token", res.token);
       })
       .catch(err => {
@@ -29,8 +28,6 @@ export class Login extends Component {
           loginError: true
         });
       });
-
-    this.setState({});
   };
   render() {
     const { email, password } = this.state;
@@ -38,7 +35,7 @@ export class Login extends Component {
       <Grid padded="horizontally" centered columns={16}>
         <Grid.Column largeScreen="6" computer="10" mobile="16" tablet="10">
           <Header as="h2" textAlign="center">
-            Log-in to your account
+            Welcome to Swipe Buy
           </Header>
 
           <Segment secondary>
@@ -69,7 +66,7 @@ export class Login extends Component {
                 />
               </Form.Field>
 
-              <Button fluid type="submit" content="Login" primary />
+              <Button color="blue" fluid type="submit" content="Login" />
             </Form>
           </Segment>
           <Segment size="small" secondary textAlign="center"></Segment>
@@ -79,4 +76,4 @@ export class Login extends Component {
   }
 }
 
-export default Login;
+export default LoginForm;
