@@ -32,7 +32,7 @@ const createUser = ({ name, email, password }) => {
         const queryText =
           "INSERT INTO users (name,email, password) values ($1,$2,$3) RETURNING id";
 
-        const res = await client.query(queryText, [name, email, password]);
+        await client.query(queryText, [name, email, password]);
 
         await client.query("COMMIT");
       } catch (e) {

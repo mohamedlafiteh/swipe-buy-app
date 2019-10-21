@@ -7,7 +7,7 @@ const authRoute = require("./auth/Routes");
 
 const path = require("path");
 require("./auth/passport");
-const SERVER_PORT = process.env.PORT || 4000;
+const SERVER_PORT = 3500;
 
 //Import Routes
 // register Routes middle wares
