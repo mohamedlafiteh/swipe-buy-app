@@ -5,7 +5,6 @@ import UserRegistrationForm from "./components/UserRegisterationForm";
 import { Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import "./App.css";
-
 class App extends React.Component {
   constructor() {
     super();

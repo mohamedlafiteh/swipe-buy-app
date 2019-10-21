@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form, Grid, Header, Message, Card } from "semantic-ui-react";
+import { Button, Form, Grid, Header, Card } from "semantic-ui-react";
 
 export class UserRegisterationForm extends Component {
   constructor() {
@@ -9,6 +9,7 @@ export class UserRegisterationForm extends Component {
       email: "",
       password: "",
       passwordConformation: "",
+      userSignUp: false,
       error: null,
       errorMessage: ""
     };
@@ -20,60 +21,60 @@ export class UserRegisterationForm extends Component {
     });
   };
 
-  // handleErrors(response) {
-  //   return response.json().then(json => {
-  //     if (!response.ok) {
-  //       throw json.message;
-  //     } else {
-  //       return json;
-  //     }
-  //   });
-  // }
+  handleErrors(response) {
+    return response.json().then(json => {
+      if (!response.ok) {
+        throw json.message;
+      } else {
+        return json;
+      }
+    });
+  }
 
-  // handleSubmit = e => {
-  //   e.preventDefault(e);
-  //   const { password, passwordConformation } = this.state;
-  //   if (password !== passwordConformation) {
-  //     alert("passwords don't match");
-  //   } else {
-  //     const userRequest = {
-  //       method: "POST",
-  //       body: JSON.stringify({
-  //         email: this.state.email,
-  //         name: this.state.name,
-  //         password: this.state.password
-  //       }),
-  //       headers: {
-  //         "Content-Type": "application/json"
-  //       }
-  //     };
-  //     fetch("/auth/register", userRequest)
-  //       .then(this.handleErrors)
-  //       .then(this.resetForm)
-  //       .catch(error => {
-  //         this.setState({
-  //           error: true,
-  //           errorMessage: error
-  //         });
-  //       });
-  //   }
-  // };
-  // resetForm = () => {
-  //   this.setState({
-  //     userSignUp: true,
-  //     name: "",
-  //     email: "",
-  //     password: "",
-  //     confirmationPassword: "",
-  //     hasErrors: false
-  //   });
-  // };
+  handleSubmit = e => {
+    e.preventDefault(e);
+    const { password, passwordConformation } = this.state;
+    if (password !== passwordConformation) {
+      alert("passwords don't match");
+    } else {
+      const userRequest = {
+        method: "POST",
+        body: JSON.stringify({
+          email: this.state.email,
+          name: this.state.name,
+          password: this.state.password
+        }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      };
+      fetch("http://localhost:3500/auth/register", userRequest)
+        .then(this.handleErrors)
+        .then(this.resetForm)
+        .catch(error => {
+          this.setState({
+            error: true,
+            errorMessage: error
+          });
+        });
+    }
+  };
+  resetForm = () => {
+    this.setState({
+      userSignUp: true,
+      name: "",
+      email: "",
+      password: "",
+      confirmationPassword: "",
+      hasErrors: false
+    });
+  };
   handleCancelClick = () => {
     window.location.href = "/";
   };
-  // clickLogin = () => {
-  //   window.location.href = "/login";
-  // };
+  clickLogin = () => {
+    window.location.href = "/login";
+  };
 
   render() {
     const { name, email, password, passwordConformation } = this.state;
@@ -136,18 +137,19 @@ export class UserRegisterationForm extends Component {
                   iconPosition="left"
                   label="Password Confirmation"
                   placeholder="Password confirmation"
-                  name="confirmationPassword"
+                  name="passwordConformation"
                   value={passwordConformation}
                   onChange={this.handleChange}
                   required
                 />
               </Form.Field>
+
               <Button.Group fluid>
-                <Button color="black" onClick={this.handleCancelClick}>
+                <Button color="blue" onClick={this.handleCancelClick}>
                   Cancel
                 </Button>
 
-                <Button color="blue" type="submit">
+                <Button color="blue" type="submit" positive>
                   Submit
                 </Button>
               </Button.Group>

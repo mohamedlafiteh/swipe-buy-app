@@ -21,7 +21,6 @@ export class Navbar extends Component {
         >
           Home
         </Menu.Item>
-
         <Menu.Menu position="right">
           <Menu.Item
             as={Link}
