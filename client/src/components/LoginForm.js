@@ -22,6 +22,8 @@ export class LoginForm extends Component {
     getToken(email, password)
       .then(res => {
         sessionStorage.setItem("token", res.token);
+        sessionStorage.setItem("userName", res.user.name);
+        window.location.href = "/";
       })
       .catch(err => {
         this.setState({
@@ -35,7 +37,7 @@ export class LoginForm extends Component {
       <Grid padded="horizontally" centered columns={16}>
         <Grid.Column largeScreen="6" computer="10" mobile="16" tablet="10">
           <Header as="h2" textAlign="center">
-            Welcome to Swipe Buy
+            Login to your account
           </Header>
 
           <Segment secondary>

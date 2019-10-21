@@ -6,7 +6,7 @@ export const getToken = (email, password) => {
       "content-type": "application/json"
     }
   };
-  return fetch("http://localhost:5000/auth/login", postParams).then(res => {
+  return fetch("http://localhost:3500/auth/login", postParams).then(res => {
     if (res.status >= 200 && res.status < 300) {
       return res.json();
     } else {
