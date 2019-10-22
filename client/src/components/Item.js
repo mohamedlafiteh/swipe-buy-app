@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import { Button, Card, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { ProductConsumer } from "../ContextProductProvider";
 
 export class Item extends Component {
   render() {
-    const { id, title, img, price, inCard } = this.props.products;
+    const { id, title, img, price, inCard, company } = this.props.products;
     return (
       <Card.Group>
         <Card>
@@ -14,19 +16,19 @@ export class Item extends Component {
             </Link>
             <Card.Header>{title}</Card.Header>
             <Card.Meta>Price:{price}</Card.Meta>
-            <Card.Description>
-              welcome to the swipe buy
-              <strong>good phone from Mohamed ALi Lafiteh</strong>
-            </Card.Description>
+            <Card.Description>{company}</Card.Description>
           </Card.Content>
           <Card.Content extra>
             <div className="ui two buttons">
-              <Button basic color="green">
-                Add to card
-              </Button>
-              <Button basic color="red">
-                Cancel
-              </Button>
+              <Link to="/details">
+                <Button
+                  onClick={() => this.props.handleDetail(id)}
+                  basic
+                  color="blue"
+                >
+                  View
+                </Button>
+              </Link>
             </div>
           </Card.Content>
         </Card>
@@ -34,5 +36,15 @@ export class Item extends Component {
     );
   }
 }
+
+Item.propTypes = {
+  products: PropTypes.shape({
+    id: PropTypes.number,
+    img: PropTypes.string,
+    title: PropTypes.string,
+    price: PropTypes.number,
+    inCard: PropTypes.bool
+  }).isRequired
+};
 
 export default Item;

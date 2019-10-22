@@ -1,11 +1,58 @@
 import React, { Component } from "react";
+import { ProductConsumer } from "../ContextProductProvider";
+import { Link } from "react-router-dom";
+import { Button, Card, Image } from "semantic-ui-react";
 
 export class Details extends Component {
   render() {
     return (
-      <div>
-        <h1>Details</h1>
-      </div>
+      <ProductConsumer>
+        {value => {
+          const {
+            id,
+            company,
+            img,
+            info,
+            price,
+            title,
+            inCard
+          } = value.detailProduct;
+          return (
+            <Card.Group>
+              <Card>
+                <Card.Content>
+                  <Link to="/details">
+                    <Image floated="right" size="mini" src={img} />
+                  </Link>
+                  <Card.Header>{title}</Card.Header>
+                  <Card.Meta>Price:{price}</Card.Meta>
+                  <Card.Description>{info}</Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                  <div className="ui two buttons">
+                    <Link to="/card">
+                      <Button
+                        onClick={() => {
+                          value.addToCard(id);
+                        }}
+                        basic
+                        color="blue"
+                      >
+                        Add To Card
+                      </Button>
+                    </Link>
+                    <Link to="/">
+                      <Button basic color="red">
+                        Cancel
+                      </Button>
+                    </Link>
+                  </div>
+                </Card.Content>
+              </Card>
+            </Card.Group>
+          );
+        }}
+      </ProductConsumer>
     );
   }
 }

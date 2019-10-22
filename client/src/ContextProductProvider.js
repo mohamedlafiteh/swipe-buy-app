@@ -8,15 +8,38 @@ class ContextProductProvider extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      storeProducts: storeProducts,
+      storeProducts: [],
       detailProduct: detailProduct
     };
   }
-  handelDetail = () => {
-    console.log("hello from detail");
+  componentDidMount() {
+    this.SetStoreProducts();
+  }
+  SetStoreProducts = () => {
+    let tempProducts = [];
+    storeProducts.forEach(item => {
+      const singleItem = { ...item };
+      tempProducts = [...tempProducts, singleItem];
+    });
+    this.setState(() => {
+      return { storeProducts: tempProducts };
+    });
   };
-  addToCard = () => {
-    console.log("hello from add to card");
+
+  getItem = id => {
+    const product = this.state.storeProducts.find(item => {
+      return item.id === id;
+    });
+    return product;
+  };
+  handleDetail = id => {
+    const product = this.getItem(id);
+    this.setState(() => {
+      return { detailProduct: product };
+    });
+  };
+  addToCard = id => {
+    console.log(`hello from addtocard ${id}`);
   };
 
   render() {
@@ -24,7 +47,7 @@ class ContextProductProvider extends Component {
       <ProductContext.Provider
         value={{
           ...this.state,
-          handelDetail: this.handelDetail,
+          handelDetail: this.handleDetail,
           addToCard: this.addToCard
         }}
       >

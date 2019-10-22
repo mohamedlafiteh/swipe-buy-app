@@ -11,7 +11,13 @@ export class ItemsList extends Component {
         <ProductConsumer>
           {value => {
             return value.storeProducts.map(products => {
-              return <Item key={products.id} products={products} />;
+              return (
+                <Item
+                  key={products.id}
+                  products={products}
+                  handleDetail={value.handleDetail}
+                />
+              );
             });
           }}
         </ProductConsumer>
