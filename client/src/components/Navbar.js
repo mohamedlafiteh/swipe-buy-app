@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Menu, Container, Dropdown } from "semantic-ui-react";
+import { Menu, Container, Dropdown, Image } from "semantic-ui-react";
 import { isLoggedIn } from "../api/isLoggedIn";
 import { logout } from "../api/logout";
 
@@ -13,7 +13,23 @@ export class Navbar extends Component {
   render() {
     const { activeItem } = this.state;
     return (
-      <Menu color="blue" inverted>
+      <Menu color="blue" inverted style={{ height: "3.5rem" }}>
+        <Menu.Item>
+          <Image
+            size="mini"
+            src="https://image.flaticon.com/icons/svg/1098/1098768.svg"
+          />
+        </Menu.Item>
+
+        <Menu.Item
+          as={Link}
+          to="/"
+          name="Swipe Buy"
+          active={activeItem === "Swipe Buy"}
+          onClick={this.handleItemClick}
+        >
+          Swipe Buy
+        </Menu.Item>
         <Menu.Item
           as={Link}
           to="/"
@@ -23,6 +39,7 @@ export class Navbar extends Component {
         >
           Home
         </Menu.Item>
+
         {isLoggedIn() ? (
           <Menu.Menu position="right">
             <Menu.Item
