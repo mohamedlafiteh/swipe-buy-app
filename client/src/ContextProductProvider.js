@@ -38,8 +38,8 @@ class ContextProductProvider extends Component {
       return { detailProduct: product };
     });
   };
-  addToCard = id => {
-    console.log(`hello from addtocard ${id}`);
+  addToCart = id => {
+    console.log(`hello from add to cart ${id}`);
   };
 
   render() {
@@ -47,8 +47,8 @@ class ContextProductProvider extends Component {
       <ProductContext.Provider
         value={{
           ...this.state,
-          handelDetail: this.handleDetail,
-          addToCard: this.addToCard
+          handleDetail: this.handleDetail,
+          addToCart: this.addToCart
         }}
       >
         {this.props.children}

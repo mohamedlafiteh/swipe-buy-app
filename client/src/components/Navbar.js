@@ -39,7 +39,15 @@ export class Navbar extends Component {
         >
           Home
         </Menu.Item>
-
+        <Menu.Item
+          as={Link}
+          to="/products"
+          name="products"
+          active={activeItem === "products"}
+          onClick={this.handleItemClick}
+        >
+          Products
+        </Menu.Item>
         {isLoggedIn() ? (
           <Menu.Menu position="right">
             <Menu.Item

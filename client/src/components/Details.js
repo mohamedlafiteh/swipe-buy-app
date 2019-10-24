@@ -15,25 +15,24 @@ export class Details extends Component {
             info,
             price,
             title,
-            inCard
+            inCart
           } = value.detailProduct;
           return (
             <Card.Group>
               <Card>
                 <Card.Content>
-                  <Link to="/details">
-                    <Image floated="right" size="mini" src={img} />
-                  </Link>
+                  <Image floated="right" size="mini" src={img} />
+
                   <Card.Header>{title}</Card.Header>
                   <Card.Meta>Price:{price}</Card.Meta>
                   <Card.Description>{info}</Card.Description>
                 </Card.Content>
                 <Card.Content extra>
                   <div className="ui two buttons">
-                    <Link to="/card">
+                    <Link to="/cart">
                       <Button
                         onClick={() => {
-                          value.addToCard(id);
+                          value.addToCart(id);
                         }}
                         basic
                         color="blue"
