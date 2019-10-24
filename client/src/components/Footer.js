@@ -1,4 +1,6 @@
 import React from "react";
+import "../styles/footer.css";
+
 import {
   Container,
   Header,
@@ -10,17 +12,7 @@ import {
 
 export default function Footer() {
   return (
-    <Segment
-      inverted
-      color="blue"
-      style={{
-        marginTop: "5em",
-        position: "flex",
-        bottom: 0,
-        width: "100%",
-        height: "7rem"
-      }}
-    >
+    <Segment inverted color="blue">
       <Container>
         <Grid divided inverted stackable>
           <Grid.Row>

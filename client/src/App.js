@@ -20,21 +20,27 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <div>
+        <div className="container">
           <Navbar />
         </div>
-        <Switch>
-          <Route exact path="/login" component={LoginForm} />
-          <Route exact path="/sign-up-user" component={UserRegistrationForm} />
-          <Route exact path="/products" component={ItemList} />
-          <Route exact path="/" component={Home} />
+        <div className="body">
+          <Switch>
+            <Route exact path="/login" component={LoginForm} />
+            <Route
+              exact
+              path="/sign-up-user"
+              component={UserRegistrationForm}
+            />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/products" component={ItemList} />
+            <Route exact path="/products/:advert" component={Details} />
 
-          <Route exact path="/details" component={Details} />
-          <Route exact path="/cart" component={Cart} />
+            <Route exact path="/cart" component={Cart} />
 
-          <Route component={ErrorPage} />
-        </Switch>
-        <div>
+            <Route component={ErrorPage} />
+          </Switch>
+        </div>
+        <div className="footer">
           <Footer />
         </div>
       </>

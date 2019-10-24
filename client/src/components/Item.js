@@ -12,7 +12,7 @@ export class Item extends Component {
         <Card.Group>
           <Card>
             <Card.Content>
-              <Link to="/details">
+              <Link to="/products/details">
                 <Image
                   onClick={() => this.props.handleDetail(id)}
                   floated="right"
@@ -26,7 +26,7 @@ export class Item extends Component {
             </Card.Content>
             <Card.Content extra>
               <div className="ui two buttons">
-                <Link to="/details">
+                <Link to="/products/details">
                   <Button
                     onClick={() => this.props.handleDetail(id)}
                     basic
