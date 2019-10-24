@@ -4,7 +4,7 @@ import { storeProducts, detailProduct } from "../data";
 import { ProductConsumer } from "../ContextProductProvider";
 import SearchInput from "./SearchInput";
 import { Grid } from "semantic-ui-react";
-
+//#e07b53
 export class ItemsList extends Component {
   render() {
     return (

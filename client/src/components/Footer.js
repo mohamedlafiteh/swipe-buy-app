@@ -12,7 +12,7 @@ import {
 
 export default function Footer() {
   return (
-    <Segment inverted color="blue">
+    <Segment inverted color="red">
       <Container>
         <Grid divided inverted stackable>
           <Grid.Row>

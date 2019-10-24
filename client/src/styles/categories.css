@@ -1,0 +1,12 @@
+.categories {
+  color: red;
+  text-align: left;
+  padding: 30px;
+  border: 1px #e48c69 solid;
+  background-color: #e48c69;
+}
+
+.advert-form {
+  color: green;
+  text-align: right;
+}

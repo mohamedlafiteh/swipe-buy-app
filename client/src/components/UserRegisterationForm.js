@@ -145,11 +145,11 @@ export class UserRegisterationForm extends Component {
               </Form.Field>
 
               <Button.Group fluid>
-                <Button color="blue" onClick={this.handleCancelClick}>
+                <Button color="red" onClick={this.handleCancelClick}>
                   Cancel
                 </Button>
 
-                <Button color="blue" type="submit" positive>
+                <Button color="orange" type="submit">
                   Submit
                 </Button>
               </Button.Group>

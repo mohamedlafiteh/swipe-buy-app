@@ -10,6 +10,8 @@ import ItemList from "./components/ItemsList";
 import Details from "./components/Details";
 import Cart from "./components/Cart";
 import Home from "./components/Home";
+import Categories from "./components/Categories";
+import AddAdvertForm from "./components/AddAdvertForm";
 
 import "./App.css";
 class App extends React.Component {
@@ -23,6 +25,8 @@ class App extends React.Component {
         <div className="container">
           <Navbar />
         </div>
+
+        <Categories />
         <div className="body">
           <Switch>
             <Route exact path="/login" component={LoginForm} />
@@ -36,7 +40,7 @@ class App extends React.Component {
             <Route exact path="/products/:advert" component={Details} />
 
             <Route exact path="/cart" component={Cart} />
-
+            <Route exact path="/add-advert" component={AddAdvertForm} />
             <Route component={ErrorPage} />
           </Switch>
         </div>

@@ -13,7 +13,7 @@ export class Navbar extends Component {
   render() {
     const { activeItem } = this.state;
     return (
-      <Menu color="blue" inverted style={{ height: "3.5rem" }}>
+      <Menu color="red" inverted style={{ height: "3.5rem" }}>
         <Menu.Item>
           <Image
             size="mini"

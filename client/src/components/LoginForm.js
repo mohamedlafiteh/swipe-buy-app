@@ -68,7 +68,7 @@ export class LoginForm extends Component {
                 />
               </Form.Field>
 
-              <Button color="blue" fluid type="submit" content="Login" />
+              <Button color="red" fluid type="submit" content="Login" />
             </Form>
           </Segment>
           <Segment size="small" secondary textAlign="center"></Segment>
