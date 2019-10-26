@@ -82,7 +82,7 @@ export class UserRegisterationForm extends Component {
       <Grid padded="horizontally" centered column={16}>
         <Grid.Column largeScreen="6" computer="10" mobile="16" tablet="10">
           <Header as="h1" textAlign="center">
-            <Header.Content style={{ marginTop: "20px" }}>
+            <Header.Content style={{ marginTop: "2em" }}>
               Register
             </Header.Content>
           </Header>

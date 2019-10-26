@@ -36,7 +36,11 @@ export class LoginForm extends Component {
     return (
       <Grid padded="horizontally" centered columns={16}>
         <Grid.Column largeScreen="6" computer="10" mobile="16" tablet="10">
-          <Header as="h2" textAlign="center">
+          <Header
+            as="h2"
+            textAlign="center"
+            style={{ marginTop: ".5em", padding: "1em" }}
+          >
             Login to your account
           </Header>
 

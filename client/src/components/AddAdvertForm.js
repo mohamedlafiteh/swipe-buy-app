@@ -11,7 +11,7 @@ export class AddAdvertForm extends Component {
               Add Advert
             </Header.Content>
           </Header>
-          <Card style={{ marginTop: "4em", padding: "2em", width: "100%" }}>
+          <Card style={{ marginTop: "2em", padding: "2em", width: "100%" }}>
             <Form>
               <Form.Field>
                 <Form.Input

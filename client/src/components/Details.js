@@ -21,7 +21,11 @@ export class Details extends Component {
             <Card.Group>
               <Card>
                 <Card.Content>
-                  <Image floated="right" size="mini" src={img} />
+                  <Image
+                    floated="right"
+                    size="mini"
+                    src={`${window.location.origin}/${img}`}
+                  />
 
                   <Card.Header>{title}</Card.Header>
                   <Card.Meta>Price:{price}</Card.Meta>

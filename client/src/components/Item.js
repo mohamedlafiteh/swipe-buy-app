@@ -6,18 +6,18 @@ import { ProductConsumer } from "../ContextProductProvider";
 
 export class Item extends Component {
   render() {
-    const { id, title, img, price, inCart, company } = this.props.products;
+    const { id, title, img, price, inCart, company } = this.props.product;
     return (
       <Grid.Column>
         <Card.Group>
           <Card>
             <Card.Content>
-              <Link to="/products/details">
+              <Link to={`/products/${id}`}>
                 <Image
                   onClick={() => this.props.handleDetail(id)}
                   floated="right"
                   size="mini"
-                  src={img}
+                  src={`http://localhost:3001/${img}`}
                 />
               </Link>
               <Card.Header>{title}</Card.Header>
