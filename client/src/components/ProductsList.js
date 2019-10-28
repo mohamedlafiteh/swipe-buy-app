@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Item from "./Item";
+import Product from "./Product";
 import { storeProducts, detailProduct } from "../data";
 import { ProductConsumer } from "../ContextProductProvider";
 import SearchInput from "./SearchInput";
-import { Grid } from "semantic-ui-react";
+import { Grid, Card } from "semantic-ui-react";
 //#e07b53
 export class ProductsList extends Component {
   render() {
@@ -11,12 +11,12 @@ export class ProductsList extends Component {
       <>
         <SearchInput />
 
-        <Grid columns={4} divided>
+        <Grid columns={4}>
           <Grid.Row>
             <ProductConsumer>
               {value => {
                 return value.storeProducts.map(product => (
-                  <Item
+                  <Product
                     key={product.id}
                     product={product}
                     handleDetail={value.handleDetail}
