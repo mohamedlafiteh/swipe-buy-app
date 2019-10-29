@@ -4,8 +4,9 @@
   "description": "swipe-app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "lint": "prettier-standard './**/*.js'",
     "dev": "NODE_ENV=development nodemon index.js",
     "recreate-db:prod": "NODE_ENV=production node ./db/seed-db.js",
     "recreate-db:local": "node ./db/seed-db.js"

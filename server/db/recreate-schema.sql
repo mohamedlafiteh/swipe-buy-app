@@ -13,3 +13,19 @@ CREATE TABLE users
 
 
 );
+
+CREATE TABLE products
+(
+    id SERIAL PRIMARY KEY,
+    picture bytea NOT NULL,
+    title VARCHAR(120) NOT NULL,
+    price numeric ,
+    description VARCHAR(30),
+
+
+);
+
+insert into products
+    (picture,title,price,description)
+values( bytea("D:\mo.jpg"), "Phone", 10, "Good condition");
+

@@ -6,11 +6,11 @@ INSERT INTO users
     city
     )
 values
-    ('1', 'Mohamed', 'mo@mo.org', 'password', 'glasgow');
+    ('4', 'Mohamed', 'vo@mom.org', 'password', 'glasgow');
 INSERT INTO users
     (id,
     name, email,
     password,city)
 values
-    ('2', 'Luaren', 'lo@lo.org', 'password', 'england');
+    ('5', 'Luaren', 'lot@lo.org', 'password', 'england');
 
