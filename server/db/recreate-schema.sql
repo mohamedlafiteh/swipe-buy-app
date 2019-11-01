@@ -1,31 +1,35 @@
 
 DROP TABLE if exists users;
 
-
+create EXTENSION
+if not exists "uuid-ossp";
 
 CREATE TABLE users
 (
-    id SERIAL PRIMARY KEY,
+
+    id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
     name VARCHAR(30) NOT NULL,
     email VARCHAR(120) NOT NULL,
     password VARCHAR(120),
-    city VARCHAR(30),
+    city VARCHAR(30)
 
 
 );
+
+DROP TABLE if exists products;
 
 CREATE TABLE products
 (
     id SERIAL PRIMARY KEY,
-    picture bytea NOT NULL,
+    picture bytea,
     title VARCHAR(120) NOT NULL,
     price numeric ,
-    description VARCHAR(30),
-
-
+    description VARCHAR(30)
 );
 
+
 insert into products
-    (picture,title,price,description)
-values( bytea("D:\mo.jpg"), "Phone", 10, "Good condition");
+    (title,price,description)
+VALUES
+    ('Phone', 10, 'Good condition');
 
