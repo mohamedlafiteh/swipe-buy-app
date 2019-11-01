@@ -14,3 +14,13 @@ INSERT INTO users
 values
     ('Luaren', 'lot@lo.org', 'password', 'england');
 
+insert into products
+    (title,price,description)
+VALUES
+    ('Shirt', 20, 'Good condition');
+
+insert into products
+    (title,price,description)
+VALUES
+    ('Table', 5, 'New black glass');
+

@@ -8,16 +8,4 @@ const products = require("./products");
 router.use("/status", status);
 router.use("/products", products);
 
-// router.get("/status/db", (req, res) => {
-//   // TODO: write code for PSQL health
-// });
-
-// router.get("/hello", (req, res) => {
-//   res.status(200).send(`Hello ${req.query.name}!`);
-// });
-
-// router.get("/products", (req, res) => {
-//   res.status(200).send(`products`);
-// });
-
 module.exports = router;

@@ -28,8 +28,3 @@ CREATE TABLE products
 );
 
 
-insert into products
-    (title,price,description)
-VALUES
-    ('Phone', 10, 'Good condition');
-
