@@ -8,10 +8,14 @@ CREATE TABLE users
 (
 
     id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
-    name VARCHAR(30) NOT NULL,
+    firstName VARCHAR(30) NOT NULL,
+    lastName VARCHAR(30) NOT NULL,
     email VARCHAR(120) NOT NULL,
     password VARCHAR(120),
-    city VARCHAR(30)
+    city VARCHAR(30),
+    country VARCHAR(30),
+    address VARCHAR(30),
+    phone VARCHAR(30)
 
 
 );

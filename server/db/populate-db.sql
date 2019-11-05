@@ -1,18 +1,17 @@
 -- Users seed data
 
 INSERT INTO users
-    (name, email,
-    password,
-    city
+    (firstName,lastName,email,password,city,address,phone,country
     )
 values
-    ('Mohamed', 'vo@mom.org', 'password', 'glasgow');
+    ('Mohamed', 'Lafiteh', 'vo@mom.org', 'password', 'Glasgow', '45 Jamica Street', '09928822', 'Scotland');
+
 INSERT INTO users
-    (
-    name, email,
-    password,city)
+    (firstName,lastName,email,password,city,address,phone,country
+    )
 values
-    ('Luaren', 'lot@lo.org', 'password', 'england');
+    ('James', 'Lung', 'km@ccc.org', 'password', 'DC', '66 New bath Street', '099233772', 'America');
+
 
 insert into products
     (title,price,description)

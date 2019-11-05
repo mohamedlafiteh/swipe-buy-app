@@ -3,21 +3,51 @@ const config = require("../../config");
 const pool = new Pool(config);
 
 const listProducts = async () => {
-  return new Promise(resolve => {
+  return new Promise((resolve, reject) => {
     pool.query("SELECT * FROM products", (error, result) => {
       if (error) {
+        reject(error);
       }
       resolve(result.rows);
     });
   });
 };
-const createProduct = (title, price, description) => {
+const createProduct = async (title, price, description) => {
   const query =
     "INSERT INTO products (title,price,description) values ($1,$2,$3)";
 
-  return pool
-    .query(query, [title, price, description])
-    .then(result => result.rows);
+  return new Promise((resolve, reject) => {
+    pool.query(query, [title, price, description], (error, result) => {
+      if (error) {
+        reject(error);
+      }
+      resolve(result.rows);
+    });
+  });
 };
 
-module.exports = { listProducts, createProduct };
+const deleteProduct = async productId => {
+  const query = "DELETE FROM products WHERE id = $1";
+  return new Promise((resolve, reject) => {
+    pool.query(query, [productId], (error, result) => {
+      if (error) {
+        reject(error);
+      }
+      resolve("deleted");
+    });
+  });
+};
+
+const updateProduct = async (content, productId) => {
+  const query = "UPDATE products SET title=$1 WHERE id=$2";
+  console.log(query);
+  return new Promise((resolve, reject) => {
+    pool.query(query, [content, productId], (error, result) => {
+      if (error) {
+        reject(error);
+      }
+      resolve("updated");
+    });
+  });
+};
+module.exports = { listProducts, createProduct, deleteProduct, updateProduct };

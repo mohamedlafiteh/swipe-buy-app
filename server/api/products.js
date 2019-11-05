@@ -37,4 +37,42 @@ router.post("/", (req, res) => {
     });
 });
 
+router.delete("/:productId", (req, res) => {
+  const productId = req.params.productId;
+  console.log(" this is the product id " + productId);
+  prodsDB
+    .deleteProduct(productId)
+    .then(re => {
+      return res.send({
+        message: "product deleted successfully"
+      });
+    })
+    .catch(e => {
+      res.status(404).send({
+        ERROR: "there is error in deleting product",
+        error: e
+      });
+    });
+});
+
+router.put("/:productId", (req, res) => {
+  const productId = req.params.productId;
+  const content = req.body.title;
+
+  prodsDB
+    .updateProduct(content, productId)
+    .then(re => {
+      return res.send({
+        message: "product updated successfully"
+      });
+    })
+    .catch(e => {
+      console.log("mo this is the error " + e);
+      res.status(404).send({
+        ERROR: "there is error in updating product",
+        error: e
+      });
+    });
+});
+
 module.exports = router;
