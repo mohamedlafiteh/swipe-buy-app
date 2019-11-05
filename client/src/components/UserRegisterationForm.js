@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 import { Button, Form, Grid, Header, Card } from "semantic-ui-react";
 
 class UserRegisterationForm extends Component {
@@ -85,9 +87,6 @@ class UserRegisterationForm extends Component {
       passwordConformation: "",
       hasErrors: false
     });
-  };
-  handleCancelClick = () => {
-    window.location.href = "/";
   };
 
   render() {
@@ -211,7 +210,7 @@ class UserRegisterationForm extends Component {
         </Form.Group>
 
         <Button.Group fluid>
-          <Button color="red" onClick={this.handleCancelClick}>
+          <Button color="red" as={Link} to="/">
             Cancel
           </Button>
 
