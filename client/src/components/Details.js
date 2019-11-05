@@ -41,7 +41,7 @@ export class Details extends Component {
                         basic
                         color="blue"
                       >
-                        Add To Card
+                        Add To Cart
                       </Button>
                     </Link>
                     <Link to="/">
