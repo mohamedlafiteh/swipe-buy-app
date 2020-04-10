@@ -3,6 +3,7 @@ import { Button, Card, Image, Grid } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { ProductConsumer } from "../ContextProductProvider";
+import ".././styles/product.css";
 
 export class Product extends Component {
   render() {
@@ -14,8 +15,8 @@ export class Product extends Component {
             <Link to={`/products/${id}`}>
               <Image
                 onClick={() => this.props.handleDetail(id)}
-                floated="right"
-                size="mini"
+                floated='right'
+                size='mini'
                 src={`${window.location.origin}/${img}`}
               />
             </Link>
@@ -24,12 +25,12 @@ export class Product extends Component {
             <Card.Description>{company}</Card.Description>
           </Card.Content>
           <Card.Content extra>
-            <div className="ui two buttons">
-              <Link to="/products/details">
+            <div className='ui two buttons'>
+              <Link to='/products/details'>
                 <Button
                   onClick={() => this.props.handleDetail(id)}
                   basic
-                  color="blue"
+                  color='blue'
                 >
                   View
                 </Button>
