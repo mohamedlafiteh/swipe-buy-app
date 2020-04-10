@@ -29,9 +29,9 @@ router.post("/", (req, res) => {
       });
     })
     .catch(e => {
-      console.log("this is ht error mo" + e);
+      console.log("this is error in inserting data" + e);
       res.status(400).send({
-        message: "ERROR in getting data",
+        message: "ERROR in inserting data",
         error: e
       });
     });

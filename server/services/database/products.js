@@ -13,17 +13,26 @@ const listProducts = async () => {
   });
 };
 const createProduct = async (title, price, description) => {
-  const query =
-    "INSERT INTO products (title,price,description) values ($1,$2,$3)";
+  const prices = Number(price);
+  if (
+    title.length !== 0 &&
+    typeof prices === "number" &&
+    description.length !== 0
+  ) {
+    const query =
+      "INSERT INTO products (title,price,description) values ($1,$2,$3)";
 
-  return new Promise((resolve, reject) => {
-    pool.query(query, [title, price, description], (error, result) => {
-      if (error) {
-        reject(error);
-      }
-      resolve(result.rows);
+    return new Promise((resolve, reject) => {
+      pool.query(query, [title, price, description], (error, result) => {
+        if (error) {
+          reject(error);
+        }
+        resolve(result.rows);
+      });
     });
-  });
+  } else {
+    throw Error;
+  }
 };
 
 const deleteProduct = async productId => {
