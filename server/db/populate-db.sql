@@ -14,12 +14,44 @@ values
 
 
 insert into products
-    (title,price,description)
+    (title,price,description,company,incart)
 VALUES
-    ('Shirt', 20, 'Good condition');
+    ('Google Pixel - Black', 10, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'GOOGLE', false);
 
 insert into products
-    (title,price,description)
+    (title,price,description,company,incart)
 VALUES
-    ('Table', 5, 'New black glass');
+    ('Samsung S7', 16, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'SAMSUNG', false);
+
+insert into products
+    (title,price,description,company,incart)
+VALUES
+    ('HTC 10 - Black', 8, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'htc', false);
+
+insert into products
+    (title,price,description,company,incart)
+VALUES
+    ('HTC 10
+- White', 18, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'htc', false);
+
+insert into products
+    (title,price,description,company,incart)
+VALUES
+    ('HTC Desire
+626s', 24, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'htc', false);
+
+insert into products
+    (title,price,description,company,incart)
+VALUES
+    ('Vintage Iphone', 17, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'apple', false);
+
+insert into products
+    (title,price,description,company,incart)
+VALUES
+    ('Iphone 7', 30, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'apple', false);
+
+insert into products
+    (title,price,description,company,incart)
+VALUES
+    ('Smashed Iphone', 2, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'apple', false);
 

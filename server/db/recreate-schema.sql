@@ -25,10 +25,12 @@ DROP TABLE if exists products;
 CREATE TABLE products
 (
     id SERIAL PRIMARY KEY,
-    picture bytea,
+    image bytea,
     title VARCHAR(120) NOT NULL,
     price numeric ,
-    description VARCHAR(30)
+    company VARCHAR (50),
+    incart BOOLEAN NOT NULL,
+    description VARCHAR(400)
 );
 
 
