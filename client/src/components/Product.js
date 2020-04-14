@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Button, Card, Image, Grid } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { ProductConsumer } from "../ContextProductProvider";
 import ".././styles/product.css";
 
 export class Product extends Component {
