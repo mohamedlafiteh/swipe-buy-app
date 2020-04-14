@@ -4,15 +4,9 @@ import SearchInput from "./SearchInput";
 import { Grid, Card } from "semantic-ui-react";
 import { connect } from "react-redux";
 
-connect(store => {
-  return {
-    user: store.user.user
-  };
-});
-
 export class ProductsList extends Component {
   render() {
-    console.log(`this is the lis Mo ${this.props}`);
+    console.log(`this is the lis Mo ${this.props.user}`);
     return (
       <>
         <SearchInput />
@@ -36,4 +30,10 @@ export class ProductsList extends Component {
   }
 }
 
-export default ProductsList;
+const mapStateToProps = store => {
+  return {
+    user: store.user.user
+  };
+};
+
+export default connect(mapStateToProps)(ProductsList);
