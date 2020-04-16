@@ -2,7 +2,7 @@ export default function reducer(
   state = {
     user: {
       id: null,
-      name: "mohamed",
+      name: "mo",
       age: null
     },
     fetching: false,
@@ -23,7 +23,7 @@ export default function reducer(
         ...state,
         fetching: false,
         fetched: true,
-        products: action.payload
+        user: action.payload
       };
     }
     case "SET_USER_NAME": {
