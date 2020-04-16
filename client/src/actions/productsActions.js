@@ -1,11 +1,11 @@
 export function fetchProducts() {
   return function(dispatch) {
     fetch("http://localhost:3500/api/products")
-      .then(response => {
-        console.log("mo response " + response);
+      .then(res => res.json())
+      .then(data => {
         dispatch({
           type: "FETCH_PRODUCTS_FULFILLED",
-          payload: response
+          payload: data
         });
       })
       .catch(error => {

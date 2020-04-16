@@ -16,11 +16,8 @@ class ProductsList extends React.Component {
   render() {
     const { user, products } = this.props;
     if (!products.length) {
-      console.log("this is products mooo " + products);
-
       return <button onClick={this.fetchProducts}>Load Products</button>;
     }
-    console.log("this is products mooo" + products);
 
     return (
       <>
