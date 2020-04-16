@@ -2,22 +2,28 @@ import React, { Component } from "react";
 import { Button, Card, Image, Grid } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { ProductConsumer } from "../ContextProductProvider";
 import ".././styles/product.css";
 
 export class Product extends Component {
   render() {
-    const { id, title, img, price, inCart, company } = this.props.product;
+    const {
+      id,
+      title,
+      image,
+      price,
+      inCart,
+      company,
+      description
+    } = this.props.product;
     return (
       <Grid.Column style={{ marginBottom: "20px" }}>
         <Card>
           <Card.Content>
             <Link to={`/products/${id}`}>
               <Image
-                onClick={() => this.props.handleDetail(id)}
                 floated='right'
                 size='mini'
-                src={`${window.location.origin}/${img}`}
+                src={`${window.location.origin}/${image}`}
               />
             </Link>
             <Card.Header>{title}</Card.Header>
@@ -27,11 +33,7 @@ export class Product extends Component {
           <Card.Content extra>
             <div className='ui two buttons'>
               <Link to='/products/details'>
-                <Button
-                  onClick={() => this.props.handleDetail(id)}
-                  basic
-                  color='blue'
-                >
+                <Button basic color='blue'>
                   View
                 </Button>
               </Link>

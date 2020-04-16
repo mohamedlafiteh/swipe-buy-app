@@ -1,30 +1,33 @@
 import React, { Component } from "react";
 import Product from "./Product";
-import { storeProducts, detailProduct } from "../data";
-import { ProductConsumer } from "../ContextProductProvider";
 import SearchInput from "./SearchInput";
 import { Grid, Card } from "semantic-ui-react";
-//#e07b53
-export class ProductsList extends Component {
+import { connect } from "react-redux";
+import { fetchUser } from "../actions/usersActions";
+import { fetchProducts } from ".././actions/productsActions";
+
+class ProductsList extends React.Component {
+  componentWillMount() {
+    this.props.dispatch(fetchUser());
+  }
+  fetchProducts = () => {
+    this.props.dispatch(fetchProducts());
+  };
   render() {
+    const { user, products } = this.props;
+    if (!products.length) {
+      return <button onClick={this.fetchProducts}>Load Products</button>;
+    }
+
     return (
       <>
+        <div>Name: {user.name}</div>
         <SearchInput />
-
         <Grid columns={4}>
           <Grid.Row>
-            <ProductConsumer>
-              {value => {
-                return value.storeProducts.map(product => (
-                  <Product
-                    key={product.id}
-                    product={product}
-                    handleDetail={value.handleDetail}
-                    addToCart={value.addToCart}
-                  />
-                ));
-              }}
-            </ProductConsumer>
+            {products.map(product => (
+              <Product key={product.id} product={product} />
+            ))}
           </Grid.Row>
         </Grid>
       </>
@@ -32,4 +35,11 @@ export class ProductsList extends Component {
   }
 }
 
-export default ProductsList;
+const mapStateToProps = store => {
+  return {
+    user: store.user.user,
+    products: store.products.products
+  };
+};
+
+export default connect(mapStateToProps)(ProductsList);

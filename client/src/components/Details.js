@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { ProductConsumer } from "../ContextProductProvider";
 import { Link } from "react-router-dom";
 import { Button, Card, Image } from "semantic-ui-react";
 
 export class Details extends Component {
   render() {
     return (
-      <ProductConsumer>
+      <div>
         {value => {
           const {
             id,
@@ -22,8 +21,8 @@ export class Details extends Component {
               <Card>
                 <Card.Content>
                   <Image
-                    floated="right"
-                    size="mini"
+                    floated='right'
+                    size='mini'
                     src={`${window.location.origin}/${img}`}
                   />
 
@@ -32,20 +31,20 @@ export class Details extends Component {
                   <Card.Description>{info}</Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                  <div className="ui two buttons">
-                    <Link to="/cart">
+                  <div className='ui two buttons'>
+                    <Link to='/cart'>
                       <Button
                         onClick={() => {
                           value.addToCart(id);
                         }}
                         basic
-                        color="blue"
+                        color='blue'
                       >
                         Add To Cart
                       </Button>
                     </Link>
-                    <Link to="/">
-                      <Button basic color="red">
+                    <Link to='/'>
+                      <Button basic color='red'>
                         Cancel
                       </Button>
                     </Link>
@@ -55,7 +54,7 @@ export class Details extends Component {
             </Card.Group>
           );
         }}
-      </ProductConsumer>
+      </div>
     );
   }
 }

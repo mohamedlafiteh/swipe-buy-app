@@ -4,6 +4,7 @@ import { Menu, Container, Dropdown, Image } from "semantic-ui-react";
 import { isLoggedIn } from "../api/isLoggedIn";
 import { logout } from "../api/logout";
 import ".././styles/navbar.css";
+import pic from "./nav.png";
 
 export class Navbar extends Component {
   constructor() {
@@ -16,10 +17,7 @@ export class Navbar extends Component {
     return (
       <Menu className='navContainer' inverted color='teal'>
         <Menu.Item>
-          <Image
-            size='mini'
-            src='https://image.flaticon.com/icons/svg/1098/1098768.svg'
-          />
+          <Image size='mini' src={pic} />
         </Menu.Item>
 
         <Menu.Item
