@@ -9,19 +9,18 @@ import { fetchProducts } from ".././actions/productsActions";
 class ProductsList extends React.Component {
   componentWillMount() {
     this.props.dispatch(fetchUser());
-  }
-  fetchProducts = () => {
     this.props.dispatch(fetchProducts());
-  };
+  }
+  // fetchProducts = () => {
+  // };
   render() {
     const { user, products } = this.props;
-    if (!products.length) {
-      return <button onClick={this.fetchProducts}>Load Products</button>;
-    }
+    // if (!products.length) {
+    //   return <button onClick={this.fetchProducts}>Load Products</button>;
+    // }
 
     return (
       <>
-        <div>Name: {user.name}</div>
         <SearchInput />
         <Grid columns={4}>
           <Grid.Row>

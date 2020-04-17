@@ -1,22 +1,12 @@
 .App {
   text-align: center;
-}
-.container {
-  min-height: 100%;
-  position: relative;
-}
-.body {
-  padding: 10px;
-  padding-bottom: 60px;
+  overflow: auto;
+  height: 100%;
 }
 
-.footer {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-
-  left: 0;
-  width: 100%;
-  height: auto;
-  background: #6cf;
+.body-container {
+  width: inherit;
+  height: inherit;
+  margin: 0;
+  padding: 0;
 }

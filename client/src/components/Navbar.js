@@ -15,72 +15,76 @@ export class Navbar extends Component {
   render() {
     const { activeItem } = this.state;
     return (
-      <Menu className='navContainer' inverted color='teal'>
-        <Menu.Item>
-          <Image size='mini' src={pic} />
-        </Menu.Item>
-
-        <Menu.Item
-          as={Link}
-          to='/'
-          name='Swipe Buy'
-          active={activeItem === "Swipe Buy"}
-          onClick={this.handleItemClick}
-        >
-          Swipe Buy
-        </Menu.Item>
-        <Menu.Item
-          as={Link}
-          to='/'
-          name='Home'
-          active={activeItem === "Home"}
-          onClick={this.handleItemClick}
-        >
-          Home
-        </Menu.Item>
-        <Menu.Item
-          as={Link}
-          to='/products'
-          name='products'
-          active={activeItem === "products"}
-          onClick={this.handleItemClick}
-        >
-          Products
-        </Menu.Item>
-        {isLoggedIn() ? (
-          <Menu.Menu position='right'>
-            <Menu.Item
-              onClick={logout}
-              name='logout'
-              active={activeItem === "logout"}
-            >
-              Logout
-            </Menu.Item>
-          </Menu.Menu>
-        ) : (
-          <Menu.Menu position='right'>
+      <>
+        <Menu className='navContainer' inverted color='teal'>
+          <Image className='nav-logo' src={pic} />
+          <div className='first-items'>
             <Menu.Item
               as={Link}
-              to='/login'
-              name='Login'
-              active={activeItem === "Login"}
+              to='/'
+              name='Swipe Buy'
+              active={activeItem === "Swipe Buy"}
               onClick={this.handleItemClick}
             >
-              Login
+              Swipe Buy
             </Menu.Item>
-
             <Menu.Item
               as={Link}
-              to='/sign-up-user'
-              name='Join'
-              active={activeItem === "Join"}
+              to='/'
+              name='Home'
+              active={activeItem === "Home"}
               onClick={this.handleItemClick}
             >
-              Join
+              Home
             </Menu.Item>
-          </Menu.Menu>
-        )}
-      </Menu>
+            <Menu.Item
+              as={Link}
+              to='/products'
+              name='products'
+              active={activeItem === "products"}
+              onClick={this.handleItemClick}
+            >
+              Products
+            </Menu.Item>
+          </div>
+
+          {isLoggedIn() ? (
+            <Menu.Menu position='right' className='second-items'>
+              <Menu.Item
+                onClick={logout}
+                name='logout'
+                active={activeItem === "logout"}
+              >
+                Logout
+              </Menu.Item>
+            </Menu.Menu>
+          ) : (
+            <Menu.Menu position='right'>
+              <Menu.Item
+                className='second-items'
+                as={Link}
+                to='/login'
+                name='Login'
+                active={activeItem === "Login"}
+                onClick={this.handleItemClick}
+              >
+                Login
+              </Menu.Item>
+
+              <Menu.Item
+                className='second-items'
+                as={Link}
+                to='/sign-up-user'
+                name='Join'
+                active={activeItem === "Join"}
+                onClick={this.handleItemClick}
+              >
+                Join
+              </Menu.Item>
+            </Menu.Menu>
+          )}
+        </Menu>
+      </>
     );
   }
 }
