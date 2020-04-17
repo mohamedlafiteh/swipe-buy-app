@@ -57,12 +57,22 @@ export class Categories extends Component {
                         <ul class='dropdown-menu'>
                           <li class='profile-li'>
                             <a class='profile-links' href='#'>
-                              Link
+                              Furniture and Fittings
                             </a>
                           </li>
                           <li class='profile-li'>
                             <a class='profile-links' href='#'>
-                              Link
+                              Clothes and Jewelry
+                            </a>
+                          </li>
+                          <li class='profile-li'>
+                            <a class='profile-links' href='#'>
+                              Property and Accommodation
+                            </a>
+                          </li>
+                          <li class='profile-li'>
+                            <a class='profile-links' href='#'>
+                              Motoring
                             </a>
                           </li>
                         </ul>
