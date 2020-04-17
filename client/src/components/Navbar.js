@@ -16,7 +16,7 @@ export class Navbar extends Component {
     const { activeItem } = this.state;
     return (
       <>
-        <Menu className='navContainer' inverted color='teal'>
+        <Menu className='navContainer' inverted color='black '>
           <Image className='nav-logo' src={pic} />
           <div className='first-items'>
             <Menu.Item
