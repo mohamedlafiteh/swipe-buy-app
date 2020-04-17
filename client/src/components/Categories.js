@@ -94,7 +94,7 @@ export class Categories extends Component {
                       fill='#fff '
                     ></path>
                   </svg>{" "}
-                  Link
+                  Cart
                   <span class='item-number '>0</span>
                 </a>
               </div>
