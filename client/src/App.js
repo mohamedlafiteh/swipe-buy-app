@@ -10,9 +10,8 @@ import ProductsList from "./components/ProductsList";
 import Details from "./components/Details";
 import Cart from "./components/Cart";
 import Home from "./components/Home";
-import Categories from "./components/Categories";
 import AddAdvertForm from "./components/AddAdvertForm";
-import MainSlider from "./components/carousel/MainSlider";
+import Categories from "./components/Categories";
 
 import "./App.css";
 class App extends React.Component {
@@ -26,9 +25,8 @@ class App extends React.Component {
         <div className='App'>
           <Navbar />
         </div>
-
         <Categories />
-        <MainSlider />
+
         <div className='body-container'>
           <Switch>
             <Route exact path='/login' component={LoginForm} />

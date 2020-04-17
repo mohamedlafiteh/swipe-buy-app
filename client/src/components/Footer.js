@@ -18,7 +18,7 @@ export default function Footer() {
       <div class='container'>
         <div class='row text-center text-xs-center text-sm-left text-md-left'>
           <div class='col-xs-12 col-sm-4 col-md-4'>
-            <h5>Quick links</h5>
+            <h5>Products</h5>
             <ul class='list-unstyled quick-links'>
               <li>
                 <a href='javascript:void();'>
@@ -48,7 +48,7 @@ export default function Footer() {
             </ul>
           </div>
           <div class='col-xs-12 col-sm-4 col-md-4'>
-            <h5>Quick links</h5>
+            <h5>Information</h5>
             <ul class='list-unstyled quick-links'>
               <li>
                 <a href='javascript:void();'>
@@ -78,34 +78,31 @@ export default function Footer() {
             </ul>
           </div>
           <div class='col-xs-12 col-sm-4 col-md-4'>
-            <h5>Quick links</h5>
+            <h5>Contacts</h5>
             <ul class='list-unstyled quick-links'>
               <li>
                 <a href='javascript:void();'>
-                  <i class='fa fa-angle-double-right'></i>Home
+                  <i class='fa fa-angle-double-right'></i>Email
                 </a>
               </li>
               <li>
                 <a href='javascript:void();'>
-                  <i class='fa fa-angle-double-right'></i>About
+                  <i class='fa fa-angle-double-right'></i>Facebook
                 </a>
               </li>
               <li>
                 <a href='javascript:void();'>
-                  <i class='fa fa-angle-double-right'></i>FAQ
+                  <i class='fa fa-angle-double-right'></i>Twitter
                 </a>
               </li>
               <li>
                 <a href='javascript:void();'>
-                  <i class='fa fa-angle-double-right'></i>Get Started
+                  <i class='fa fa-angle-double-right'></i>Instagram
                 </a>
               </li>
               <li>
-                <a
-                  href='https://wwwe.sunlimetech.com'
-                  title='Design and developed by'
-                >
-                  <i class='fa fa-angle-double-right'></i>Imprint
+                <a href='#' title='Design and developed by'>
+                  <i class='fa fa-angle-double-right'></i>Numbers
                 </a>
               </li>
             </ul>
@@ -163,18 +160,3 @@ export default function Footer() {
     </section>
   );
 }
-
-// <Segment inverted color='teal'>
-//   <Container>
-//     <Grid divided inverted stackable>
-//       <Grid.Row>
-//         <Grid.Column width={7}>
-//           <Header as='h4' inverted>
-//             Swipe Buy
-//           </Header>
-//           <p>Swipe Buy is for people to buy and sell items. </p>
-//         </Grid.Column>
-//       </Grid.Row>
-//     </Grid>
-//   </Container>
-// </Segment>;
