@@ -5,6 +5,7 @@ import { fetchUser } from "../actions/usersActions";
 import { fetchProducts } from ".././actions/productsActions";
 import HomePageProducts from "./HomePageProducts";
 import MainSlider from "./carousel/MainSlider";
+import ".././styles/home.css";
 
 class Home extends React.Component {
   componentWillMount() {
@@ -18,13 +19,13 @@ class Home extends React.Component {
     return (
       <>
         <MainSlider />
-        <Grid columns={4}>
-          <Grid.Row>
-            {products.map(product => (
-              <HomePageProducts key={product.id} product={product} />
-            ))}
-          </Grid.Row>
-        </Grid>
+        <div className='container'>
+          <div className='row'>
+            {products.map(product => {
+              return <HomePageProducts key={product.id} product={product} />;
+            })}
+          </div>
+        </div>
       </>
     );
   }
@@ -38,3 +39,13 @@ const mapStateToProps = store => {
 };
 
 export default connect(mapStateToProps)(Home);
+
+{
+  /* <Grid columns={4}>
+  <Grid.Row>
+    {products.map(product => (
+      <HomePageProducts key={product.id} product={product} />
+    ))}
+  </Grid.Row>
+</Grid> */
+}
