@@ -41,6 +41,15 @@ export default function reducer(
         )
       };
     }
+    case "FETCH_PRODUCT_BY_ID": {
+      return {
+        ...state,
+        products: state.products.find(product => {
+          console.log("mo this is the products " + product);
+          return product.id === action.payload.id;
+        })
+      };
+    }
   }
   return state;
 }

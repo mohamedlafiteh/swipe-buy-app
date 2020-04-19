@@ -9,7 +9,6 @@ import ".././styles/home.css";
 
 class Home extends React.Component {
   componentWillMount() {
-    this.props.dispatch(fetchUser());
     this.props.dispatch(fetchProducts());
   }
 
@@ -33,7 +32,6 @@ class Home extends React.Component {
 
 const mapStateToProps = store => {
   return {
-    user: store.user.user,
     products: store.products.products
   };
 };

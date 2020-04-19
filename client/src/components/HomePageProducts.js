@@ -15,21 +15,33 @@ export class HomePageProducts extends Component {
       company,
       description
     } = this.props.product;
+
     return (
       <div className='col-md-4 all-cards'>
         <div className='products__box'>
-          <img className='recipe__box-img' src={image} />
+          <Link to={`/products/${id}`}>
+            <img
+              className='img-card'
+              src={`${window.location.origin}/${image}`}
+            />
+          </Link>
           <div className='product__text'>
             <h5 className='products__title'>
               {title.length < 20 ? `${title}` : `${title.substring(0, 25)}...`}
             </h5>
             <p className='products__subtitle'>
-              Publisher: <span>{company}</span>
+              Company: <span>{company}</span>
+            </p>
+            <h1 className='products__subtitle'>
+              Price:<span>{price}</span>{" "}
+            </h1>
+            <p className='products__subtitle'>
+              Description: <span>{description}</span>
             </p>
           </div>
-          <button className='products_buttons'>
-            <Link>View Product</Link>
-          </button>
+          <Link to='/products/details'>
+            <button className='products_buttons'>View Product</button>
+          </Link>
         </div>
       </div>
     );
