@@ -6,11 +6,12 @@ import { fetchProductsById } from ".././actions/productsActions";
 
 export class Details extends Component {
   componentWillMount() {
-    this.props.dispatch(fetchProductsById());
+    const id = this.props.match.params.id;
+    const data = this.props.dispatch(fetchProductsById(id));
+    console.log("data from dispatch " + data);
   }
   render() {
     const {
-      id,
       title,
       image,
       price,
@@ -31,7 +32,7 @@ export class Details extends Component {
 
               <Card.Header>{title}</Card.Header>
               <Card.Meta>Price:{price}</Card.Meta>
-              <Card.Description>{description}</Card.Description>
+              <Card.Description>Description: {description}</Card.Description>
             </Card.Content>
             <Card.Content extra>
               <div className='ui two buttons'>

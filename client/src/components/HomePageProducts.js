@@ -20,10 +20,7 @@ export class HomePageProducts extends Component {
       <div className='col-md-4 all-cards'>
         <div className='products__box'>
           <Link to={`/products/${id}`}>
-            <img
-              className='img-card'
-              src={`${window.location.origin}/${image}`}
-            />
+            <img className='img-card' src={image} />
           </Link>
           <div className='product__text'>
             <h5 className='products__title'>
@@ -35,9 +32,6 @@ export class HomePageProducts extends Component {
             <h1 className='products__subtitle'>
               Price:<span>{price}</span>{" "}
             </h1>
-            <p className='products__subtitle'>
-              Description: <span>{description}</span>
-            </p>
           </div>
           <Link to='/products/details'>
             <button className='products_buttons'>View Product</button>
