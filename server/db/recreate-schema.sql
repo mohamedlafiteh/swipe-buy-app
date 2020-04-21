@@ -11,11 +11,9 @@ CREATE TABLE users
     firstName VARCHAR(30) NOT NULL,
     lastName VARCHAR(30) NOT NULL,
     email VARCHAR(120) NOT NULL,
-    password VARCHAR(120),
-    city VARCHAR(30),
+    password numeric(120),
     country VARCHAR(30),
-    address VARCHAR(30),
-    phone VARCHAR(30)
+    phone numeric(30)
 
 
 );

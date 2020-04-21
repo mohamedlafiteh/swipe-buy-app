@@ -19,10 +19,8 @@ const createUser = ({
   lastName,
   email,
   password,
-  city,
-  address,
-  phone,
-  country
+  country,
+  phone
 }) => {
   return getUserByEmail(email)
     .then(users => {
@@ -39,16 +37,14 @@ const createUser = ({
       try {
         await client.query("BEGIN");
         const queryText =
-          "INSERT INTO users (firstName,lastName,email,password,city,country,address,phone) values ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING id";
+          "INSERT INTO users (firstName,lastName,email,password,country,phone) values ($1,$2,$3,$4,$5,$6) RETURNING id";
 
         await client.query(queryText, [
           firstName,
           lastName,
           email,
           password,
-          city,
           country,
-          address,
           phone
         ]);
 

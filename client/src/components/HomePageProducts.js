@@ -15,7 +15,6 @@ export class HomePageProducts extends Component {
       company,
       description
     } = this.props.product;
-
     return (
       <div className='col-md-4 all-cards'>
         <div className='products__box'>
@@ -43,7 +42,7 @@ export class HomePageProducts extends Component {
 }
 
 HomePageProducts.propTypes = {
-  products: PropTypes.shape({
+  product: PropTypes.shape({
     id: PropTypes.number,
     img: PropTypes.string,
     title: PropTypes.string,

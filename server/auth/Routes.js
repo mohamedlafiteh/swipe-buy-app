@@ -3,28 +3,16 @@ const jwt = require("jsonwebtoken");
 const db = require("../services/database/users");
 
 router.post("/register", async (req, res) => {
-  const {
-    firstName,
-    lastName,
-    email,
-    password,
-    city,
-    address,
-    phone,
-    country
-  } = req.body;
+  const { firstName, lastName, email, password, country, phone } = req.body;
 
   const user = {
     firstName,
     lastName,
     email,
     password,
-    city,
-    address,
-    phone,
-    country
+    country,
+    phone
   };
-
   db.createUser(user)
     .then(() => {
       res.send({

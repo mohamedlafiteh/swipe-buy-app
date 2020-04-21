@@ -20,8 +20,8 @@ class Home extends React.Component {
         <MainSlider />
         <div className='container'>
           <div className='row'>
-            {products.map(product => {
-              return <HomePageProducts key={product.id} product={product} />;
+            {products.map((product, index) => {
+              return <HomePageProducts key={index} product={product} />;
             })}
           </div>
         </div>

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Form, Input, Button, Segment, Grid, Header } from "semantic-ui-react";
 import { getToken } from "../api/getToken";
 import "../styles/login.css";
 
@@ -34,6 +33,7 @@ export class LoginForm extends Component {
   };
   render() {
     const { email, password } = this.state;
+
     return (
       <>
         <div class='container-fluid'>
@@ -89,6 +89,7 @@ export class LoginForm extends Component {
                           </label>
                         </div>
                         <button
+                          onClick={this.handleSubmit}
                           type='submit'
                           class='btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm'
                         >
