@@ -1,6 +1,14 @@
 const router = require("express").Router();
 const jwt = require("jsonwebtoken");
 const db = require("../services/database/users");
+const {
+  emailValidate,
+  firstNameValidate,
+  passwordValidate,
+  lastNameValidate,
+  countryValidate,
+  phoneValidate
+} = require("./validator.js");
 
 router.post("/register", async (req, res) => {
   const { firstName, lastName, email, password, country, phone } = req.body;
@@ -13,6 +21,42 @@ router.post("/register", async (req, res) => {
     country,
     phone
   };
+
+  const errorMessages = [];
+
+  if (!emailValidate(email)) {
+    errorMessages.push("The email format is incorrect");
+  }
+
+  if (!firstNameValidate(firstName)) {
+    errorMessages.push("First name is required and cannot be a number");
+  }
+
+  if (!lastNameValidate(lastName)) {
+    errorMessages.push("Last name is required and cannot be a number");
+  }
+
+  if (!countryValidate(country)) {
+    errorMessages.push("Country is required and cannot be a number");
+  }
+
+  if (!passwordValidate(password)) {
+    errorMessages.push("The password must have at least 8 characters");
+  }
+
+  if (!phoneValidate(phone)) {
+    errorMessages.push(
+      "The phone number is shorter than 6 and it must be a number"
+    );
+  }
+
+  if (errorMessages.length != 0) {
+    return res.status(400).send({
+      success: false,
+      message: errorMessages.join(", ")
+    });
+  }
+
   db.createUser(user)
     .then(() => {
       res.send({
