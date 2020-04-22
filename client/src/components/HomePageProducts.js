@@ -32,7 +32,7 @@ export class HomePageProducts extends Component {
               Price:<span>{price}</span>{" "}
             </h1>
           </div>
-          <Link to='/products/details'>
+          <Link to={`/products/${id}`}>
             <button className='products_buttons'>View Product</button>
           </Link>
         </div>

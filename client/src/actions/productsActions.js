@@ -19,8 +19,6 @@ export function fetchProductsById(id) {
     fetch(`http://localhost:3500/api/products/${id}`)
       .then(res => res.json())
       .then(data => {
-        console.log("mo this is data from fetch-by-id " + data);
-
         dispatch({
           type: "FETCH_PRODUCT_BY_ID",
           payload: data

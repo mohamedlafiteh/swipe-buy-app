@@ -1,24 +1,23 @@
 export default function reducer(
   state = {
     products: [],
-    fetching: false,
-    fetched: false,
+    isFetching: false,
     error: null
   },
   action
 ) {
   switch (action.type) {
     case "FETCH_PRODUCTS": {
-      return { ...state, fetching: true };
+      return { ...state, isFetching: true };
     }
     case "FETCH_PRODUCTS_REJECTED": {
-      return { ...state, fetching: false, error: action.payload };
+      return { ...state, isFetching: false, error: action.payload };
     }
     case "FETCH_PRODUCTS_FULFILLED": {
       return {
         ...state,
-        fetching: false,
-        fetched: true,
+        isFetching: false,
+
         products: action.payload
       };
     }
@@ -42,12 +41,11 @@ export default function reducer(
       };
     }
     case "FETCH_PRODUCT_BY_ID": {
+      console.log("action", action);
       return {
         ...state,
-        products: state.products.find(product => {
-          console.log("mo this is the products " + product);
-          return product.id === action.payload.id;
-        })
+        isFetching: false,
+        selectedProduct: action.payload
       };
     }
   }

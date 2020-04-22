@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Button, Card, Image } from "semantic-ui-react";
 import { connect } from "react-redux";
@@ -11,15 +12,10 @@ export class Details extends Component {
     console.log("data from dispatch " + data);
   }
   render() {
-    const {
-      title,
-      image,
-      price,
-      inCart,
-      company,
-      description
-    } = this.props.products;
-    return (
+    const { product, isLoading } = this.props;
+    return isLoading ? (
+      "Loading....."
+    ) : (
       <div>
         <Card.Group>
           <Card>
@@ -27,12 +23,14 @@ export class Details extends Component {
               <Image
                 floated='right'
                 size='mini'
-                src={`${window.location.origin}/${image}`}
+                src={`${window.location.origin}/${product.image}`}
               />
 
-              <Card.Header>{title}</Card.Header>
-              <Card.Meta>Price:{price}</Card.Meta>
-              <Card.Description>Description: {description}</Card.Description>
+              <Card.Header>{product.title}</Card.Header>
+              <Card.Meta>Price:{product.price}</Card.Meta>
+              <Card.Description>
+                Description: {product.description}
+              </Card.Description>
             </Card.Content>
             <Card.Content extra>
               <div className='ui two buttons'>
@@ -53,9 +51,21 @@ export class Details extends Component {
   }
 }
 
+Details.propTypes = {
+  product: PropTypes.shape({
+    title: PropTypes.string,
+    image: PropTypes.string
+  })
+};
+
+Details.defaultProps = {
+  product: {}
+};
+
 const mapStateToProps = store => {
   return {
-    products: store.products.products
+    product: store.products.selectedProduct,
+    isLoading: store.products.isFetching
   };
 };
 

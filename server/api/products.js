@@ -23,10 +23,9 @@ router.get("/:productId", (req, res) => {
   prodsDB
     .getProductById(productId)
     .then(re => {
-      return res.send(re);
+      return res.send(re[0]);
     })
     .catch(e => {
-      console.log("mo this is the error " + e);
       res.status(404).send({
         ERROR: "there is error in updating product",
         error: e
