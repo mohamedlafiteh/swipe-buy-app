@@ -12,6 +12,19 @@ const listProducts = async () => {
     });
   });
 };
+
+const getProductById = async productId => {
+  const query = "SELECT * FROM products WHERE id = $1";
+  return new Promise((resolve, reject) => {
+    pool.query(query, [productId], (error, result) => {
+      if (error) {
+        reject(error);
+      }
+      resolve(result.rows);
+    });
+  });
+};
+
 const createProduct = async (title, price, description) => {
   const prices = Number(price);
   if (
@@ -59,4 +72,10 @@ const updateProduct = async (content, productId) => {
     });
   });
 };
-module.exports = { listProducts, createProduct, deleteProduct, updateProduct };
+module.exports = {
+  listProducts,
+  createProduct,
+  deleteProduct,
+  updateProduct,
+  getProductById
+};

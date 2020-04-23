@@ -1,24 +1,23 @@
 export default function reducer(
   state = {
     products: [],
-    fetching: false,
-    fetched: false,
+    isFetching: false,
     error: null
   },
   action
 ) {
   switch (action.type) {
     case "FETCH_PRODUCTS": {
-      return { ...state, fetching: true };
+      return { ...state, isFetching: true };
     }
     case "FETCH_PRODUCTS_REJECTED": {
-      return { ...state, fetching: false, error: action.payload };
+      return { ...state, isFetching: false, error: action.payload };
     }
     case "FETCH_PRODUCTS_FULFILLED": {
       return {
         ...state,
-        fetching: false,
-        fetched: true,
+        isFetching: false,
+
         products: action.payload
       };
     }
@@ -39,6 +38,13 @@ export default function reducer(
         products: state.products.filter(
           product => product.id !== action.payload
         )
+      };
+    }
+    case "FETCH_PRODUCT_BY_ID": {
+      return {
+        ...state,
+        isFetching: false,
+        selectedProduct: action.payload
       };
     }
   }

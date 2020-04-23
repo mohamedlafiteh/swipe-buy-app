@@ -1,0 +1,15 @@
+.login {
+  min-height: 70vh;
+}
+
+.bg-image {
+  background-image: url("../components/nav.png");
+  background-size: cover;
+  background-position: center center;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.form-container {
+  margin-top: -30px;
+}

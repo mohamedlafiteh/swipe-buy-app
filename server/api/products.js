@@ -17,6 +17,22 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/:productId", (req, res) => {
+  const productId = req.params.productId;
+
+  prodsDB
+    .getProductById(productId)
+    .then(re => {
+      return res.send(re[0]);
+    })
+    .catch(e => {
+      res.status(404).send({
+        ERROR: "there is error in updating product",
+        error: e
+      });
+    });
+});
+
 router.post("/", (req, res) => {
   const { title, price, description } = req.body;
 

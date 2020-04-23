@@ -32,7 +32,7 @@ export class Product extends Component {
           </Card.Content>
           <Card.Content extra>
             <div className='ui two buttons'>
-              <Link to='/products/details'>
+              <Link to={`/products/${id}`}>
                 <Button basic color='blue'>
                   View
                 </Button>

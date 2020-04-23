@@ -1,62 +1,71 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { Button, Card, Image } from "semantic-ui-react";
+import { connect } from "react-redux";
+import { fetchProductsById } from ".././actions/productsActions";
 
 export class Details extends Component {
+  componentWillMount() {
+    const id = this.props.match.params.id;
+    this.props.dispatch(fetchProductsById(id));
+  }
   render() {
-    return (
+    const { product, isLoading } = this.props;
+    return isLoading ? (
+      "Loading....."
+    ) : (
       <div>
-        {value => {
-          const {
-            id,
-            company,
-            img,
-            info,
-            price,
-            title,
-            inCart
-          } = value.detailProduct;
-          return (
-            <Card.Group>
-              <Card>
-                <Card.Content>
-                  <Image
-                    floated='right'
-                    size='mini'
-                    src={`${window.location.origin}/${img}`}
-                  />
+        <Card.Group>
+          <Card>
+            <Card.Content>
+              <Image
+                floated='right'
+                size='mini'
+                src={`${window.location.origin}/${product.image}`}
+              />
 
-                  <Card.Header>{title}</Card.Header>
-                  <Card.Meta>Price:{price}</Card.Meta>
-                  <Card.Description>{info}</Card.Description>
-                </Card.Content>
-                <Card.Content extra>
-                  <div className='ui two buttons'>
-                    <Link to='/cart'>
-                      <Button
-                        onClick={() => {
-                          value.addToCart(id);
-                        }}
-                        basic
-                        color='blue'
-                      >
-                        Add To Cart
-                      </Button>
-                    </Link>
-                    <Link to='/'>
-                      <Button basic color='red'>
-                        Cancel
-                      </Button>
-                    </Link>
-                  </div>
-                </Card.Content>
-              </Card>
-            </Card.Group>
-          );
-        }}
+              <Card.Header>{product.title}</Card.Header>
+              <Card.Meta>Price:{product.price}</Card.Meta>
+              <Card.Description>
+                Description: {product.description}
+              </Card.Description>
+            </Card.Content>
+            <Card.Content extra>
+              <div className='ui two buttons'>
+                <Link to='/cart'>
+                  <Button>Add To Cart</Button>
+                </Link>
+                <Link to='/'>
+                  <Button basic color='red'>
+                    Cancel
+                  </Button>
+                </Link>
+              </div>
+            </Card.Content>
+          </Card>
+        </Card.Group>
       </div>
     );
   }
 }
 
-export default Details;
+Details.propTypes = {
+  product: PropTypes.shape({
+    title: PropTypes.string,
+    image: PropTypes.string
+  })
+};
+
+Details.defaultProps = {
+  product: {}
+};
+
+const mapStateToProps = store => {
+  return {
+    product: store.products.selectedProduct,
+    isLoading: store.products.isFetching
+  };
+};
+
+export default connect(mapStateToProps)(Details);
