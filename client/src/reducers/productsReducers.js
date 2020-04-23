@@ -41,7 +41,6 @@ export default function reducer(
       };
     }
     case "FETCH_PRODUCT_BY_ID": {
-      console.log("action", action);
       return {
         ...state,
         isFetching: false,

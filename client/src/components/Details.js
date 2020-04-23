@@ -8,8 +8,7 @@ import { fetchProductsById } from ".././actions/productsActions";
 export class Details extends Component {
   componentWillMount() {
     const id = this.props.match.params.id;
-    const data = this.props.dispatch(fetchProductsById(id));
-    console.log("data from dispatch " + data);
+    this.props.dispatch(fetchProductsById(id));
   }
   render() {
     const { product, isLoading } = this.props;
