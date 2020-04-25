@@ -20,9 +20,11 @@ export class Details extends Component {
         <div class='product-view-container'>
           <div class='content-container'>
             <div class='left-container'>
-              <div class='triangle-topleft'>
-                <div class='back-arrow' id='buy-toaster'></div>
-              </div>
+              <Link to='/'>
+                <div class='triangle-topleft'>
+                  <div class='back-arrow' id='buy-toaster'></div>
+                </div>
+              </Link>
               <div class='product-image--container'>
                 <img
                   class='product-image--featured'
@@ -144,11 +146,6 @@ export class Details extends Component {
                   </span>
                   <span class='btn-text'>Add to Cart</span>
                 </button>
-                <Link to='/' style={{ color: "black" }}>
-                  <button class='my-second-button'>
-                    <span class='second-btn-text'>Cancel</span>
-                  </button>
-                </Link>
               </div>
             </div>
           </div>
@@ -177,4 +174,3 @@ const mapStateToProps = store => {
 };
 
 export default connect(mapStateToProps)(Details);
-
