@@ -89,14 +89,14 @@ a {
   font-size: 15px;
   padding: 10px 19px;
   cursor: pointer;
-  color: #fff;
+  color: black;
   width: 100%;
 }
 
 .btn-light {
   color: #ffffff;
   background-color: #f44336;
-
+  border-color: #f44336;
   font-size: 12px;
 }
 

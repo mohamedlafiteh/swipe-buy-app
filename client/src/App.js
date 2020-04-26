@@ -12,6 +12,7 @@ import Home from "./components/Home";
 import AddAdvertForm from "./components/AddAdvertForm";
 import Categories from "./components/Categories";
 import About from "./components/About";
+import ContactUs from "./components/ContactUs";
 
 import "./App.css";
 class App extends React.Component {
@@ -42,6 +43,7 @@ class App extends React.Component {
             <Route exact path='/cart' component={Cart} />
             <Route exact path='/add-advert' component={AddAdvertForm} />
             <Route exact path='/about' component={About} />
+            <Route exact path='/contact-us' component={ContactUs} />
             <Route component={ErrorPage} />
           </Switch>
         </div>

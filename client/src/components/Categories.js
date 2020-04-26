@@ -19,11 +19,13 @@ export class Categories extends Component {
                     <a class='links'>About</a>
                   </li>
                 </Link>
-                <li class='upper-links'>
-                  <a class='links' href='#'>
-                    Contacts
-                  </a>
-                </li>
+                <Link to='/contact-us'>
+                  <li class='upper-links'>
+                    <a class='links' href='#'>
+                      Contact Us
+                    </a>
+                  </li>
+                </Link>
                 <li class='upper-links'>
                   <a class='links' href='#'>
                     More
