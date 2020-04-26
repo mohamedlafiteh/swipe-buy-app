@@ -1,0 +1,12 @@
+.about-container {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-top: 70px;
+  margin-bottom: 400px;
+}
+
+.about-container h1 {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 25px;
+}

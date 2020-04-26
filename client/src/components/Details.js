@@ -134,7 +134,7 @@ export class Details extends Component {
                   <span>|</span>
                   <span>Color: Black</span>
                 </div>
-                <p>{product.description}</p>
+                <p className='description'>{product.description}</p>
               </div>
               <div>
                 <button class='my-btn flex-btn'>

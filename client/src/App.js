@@ -5,12 +5,13 @@ import { Route, Switch } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ErrorPage from "./components/ErrorPage";
-import ProductsList from "./components/ProductsList";
+import Admin from "./components/Admin/Admin";
 import Details from "./components/Details";
 import Cart from "./components/Cart";
 import Home from "./components/Home";
 import AddAdvertForm from "./components/AddAdvertForm";
 import Categories from "./components/Categories";
+import About from "./components/About";
 
 import "./App.css";
 class App extends React.Component {
@@ -35,11 +36,12 @@ class App extends React.Component {
               component={UserRegistrationForm}
             />
             <Route exact path='/' component={Home} />
-            <Route exact path='/products' component={ProductsList} />
+            <Route exact path='/admin' component={Admin} />
             <Route exact path='/products/:id' component={Details} />
 
             <Route exact path='/cart' component={Cart} />
             <Route exact path='/add-advert' component={AddAdvertForm} />
+            <Route exact path='/about' component={About} />
             <Route component={ErrorPage} />
           </Switch>
         </div>

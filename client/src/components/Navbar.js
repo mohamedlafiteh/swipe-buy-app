@@ -39,12 +39,12 @@ export class Navbar extends Component {
             </Menu.Item>
             <Menu.Item
               as={Link}
-              to='/products'
-              name='products'
-              active={activeItem === "products"}
+              to='/admin'
+              name='admin'
+              active={activeItem === "admin"}
               onClick={this.handleItemClick}
             >
-              Products
+              Admin
             </Menu.Item>
           </div>
 

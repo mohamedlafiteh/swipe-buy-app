@@ -5,9 +5,10 @@
 .content-container {
   display: flex;
   margin: 0 auto;
-  background-color: blue;
+  background-color: #4682b4;
   max-width: 660px;
   width: 100%;
+  height: 450px;
   border-radius: 20px;
 }
 
@@ -95,6 +96,13 @@
   margin: 0.5em 0 0.5em 0;
   opacity: 0.6;
   color: white;
+  font-weight: bold;
+}
+
+.description {
+  margin: 1em 0 1em 0;
+  font-weight: bold;
+  color: white;
 }
 
 // RATING STARS FROM https://www.everythingfrontend.com/posts/star-rating-input-pure-css.html
@@ -129,6 +137,7 @@
 
 .reviews {
   text-decoration: none;
+  font-weight: bold;
 }
 
 a:hover.reviews {
@@ -155,6 +164,7 @@ a:hover.reviews {
   height: 50px;
   -webkit-transition: all ease 0.25s;
   transition: all ease 0.25s;
+  margin-top: 30px;
 }
 
 .my-btn:hover {
