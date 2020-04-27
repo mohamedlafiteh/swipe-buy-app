@@ -24,7 +24,8 @@ function lastNameValidate(name) {
 }
 
 function countryValidate(country) {
-  if (country == null || country.length == 0 || typeof country == "number") {
+  const checkFormat = isNaN(country);
+  if (country == null || country.length == 0 || !checkFormat) {
     return false;
   } else {
     return true;
@@ -36,8 +37,11 @@ function passwordValidate(password) {
 }
 
 function phoneValidate(phone) {
-  const changeFormat = toString(phone);
-  return changeFormat.length >= 6;
+  if (phone === null || phone.length === 0 || typeof phone === "string") {
+    return false;
+  } else {
+    return true;
+  }
 }
 
 module.exports = {

@@ -6,14 +6,15 @@ const router = express.Router();
 router.get("/", (req, res) => {
   prodsDB
     .listProducts()
-    .then(r => {
-      return res.send(r);
+    .then(products => {
+      console.log("products list :" + typeof products[0].price);
+      return res.send(products);
     })
     .catch(e => {
       res.status(400).send({
         e: e
       });
-      return res.status(400).send(" alert there is error insert product");
+      return res.status(400).send("There is error in getting products");
     });
 });
 
@@ -27,25 +28,23 @@ router.get("/:productId", (req, res) => {
     })
     .catch(e => {
       res.status(404).send({
-        ERROR: "there is error in updating product",
+        ERROR: "There is error in getting product by id",
         error: e
       });
     });
 });
 
 router.post("/", (req, res) => {
-  const { title, price, description } = req.body;
-
-  console.log(title, price, description);
+  const { image, title, price, description, company, incart } = req.body;
+  console.log(typeof title, typeof price, typeof description);
   prodsDB
-    .createProduct(title, price, description)
+    .createProduct(image, title, price, description, company, incart)
     .then(response => {
       return res.send({
         message: "created successfully"
       });
     })
     .catch(e => {
-      console.log("this is error in inserting data" + e);
       res.status(400).send({
         message: "ERROR in inserting data",
         error: e
@@ -55,7 +54,6 @@ router.post("/", (req, res) => {
 
 router.delete("/:productId", (req, res) => {
   const productId = req.params.productId;
-  console.log(" this is the product id " + productId);
   prodsDB
     .deleteProduct(productId)
     .then(re => {
@@ -65,7 +63,7 @@ router.delete("/:productId", (req, res) => {
     })
     .catch(e => {
       res.status(404).send({
-        ERROR: "there is error in deleting product",
+        ERROR: "There is error in deleting product",
         error: e
       });
     });
@@ -79,13 +77,12 @@ router.put("/:productId", (req, res) => {
     .updateProduct(content, productId)
     .then(re => {
       return res.send({
-        message: "product updated successfully"
+        message: "Product updated successfully"
       });
     })
     .catch(e => {
-      console.log("mo this is the error " + e);
       res.status(404).send({
-        ERROR: "there is error in updating product",
+        ERROR: "There is error in updating product",
         error: e
       });
     });
