@@ -55,6 +55,7 @@ class UserRegisterationForm extends Component {
           "Content-Type": "application/json"
         }
       };
+
       fetch("http://localhost:3500/auth/register", userRequest)
         .then(this.handleErrors)
         .then(this.resetForm)
@@ -206,7 +207,7 @@ class UserRegisterationForm extends Component {
                       onChange={this.handleChange}
                       id='country'
                       name='country'
-                      value={this.state.country}
+                      value={country}
                       class='form-control custom-select bg-white border-left-0 border-md'
                     >
                       <option value='select'>Select Your Country</option>
@@ -526,7 +527,7 @@ class UserRegisterationForm extends Component {
                     </div>
                     <input
                       id='passwordConfirmation'
-                      type='text'
+                      type='password'
                       name='passwordConformation'
                       value={passwordConformation}
                       onChange={this.handleChange}
@@ -574,9 +575,11 @@ class UserRegisterationForm extends Component {
                   <div class='text-center w-100'>
                     <p class='text-muted font-weight-bold'>
                       Already Registered?{" "}
-                      <a href='#' class='text-primary ml-2'>
-                        Login
-                      </a>
+                      <Link to='/login'>
+                        <a href='#' class='text-primary ml-2'>
+                          Login
+                        </a>
+                      </Link>
                     </p>
                   </div>
                 </div>

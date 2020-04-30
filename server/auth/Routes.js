@@ -11,8 +11,9 @@ const {
 } = require("./validator.js");
 
 router.post("/register", async (req, res) => {
-  const { firstName, lastName, email, password, country, phone } = req.body;
+  const { firstName, lastName, email, password, country } = req.body;
 
+  const phone = Number(req.body.phone);
   const user = {
     firstName,
     lastName,

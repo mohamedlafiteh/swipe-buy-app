@@ -52,29 +52,3 @@ HomePageProducts.propTypes = {
 };
 
 export default HomePageProducts;
-
-// <Grid.Column style={{ marginBottom: "20px" }}>
-//   <Card>
-//     <Card.Content>
-//       <Link to={`/products/${id}`}>
-//         <Image
-//           floated='right'
-//           size='mini'
-//           src={`${window.location.origin}/${image}`}
-//         />
-//       </Link>
-//       <Card.Header>{title}</Card.Header>
-//       <Card.Meta>Price:{price}</Card.Meta>
-//       <Card.Description>{company}</Card.Description>
-//     </Card.Content>
-//     <Card.Content extra>
-//       <div className='ui two buttons'>
-//         <Link to='/products/details'>
-//           <Button basic color='blue'>
-//             View
-//                 </Button>
-//         </Link>
-//       </div>
-//     </Card.Content>
-//   </Card>
-// </Grid.Column>

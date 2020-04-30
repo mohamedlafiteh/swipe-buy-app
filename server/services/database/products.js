@@ -25,7 +25,14 @@ const getProductById = async productId => {
   });
 };
 
-const createProduct = async (title, price, description) => {
+const createProduct = async (
+  image,
+  title,
+  price,
+  description,
+  company,
+  incart
+) => {
   const prices = Number(price);
   if (
     title.length !== 0 &&
@@ -33,15 +40,19 @@ const createProduct = async (title, price, description) => {
     description.length !== 0
   ) {
     const query =
-      "INSERT INTO products (title,price,description) values ($1,$2,$3)";
+      "INSERT INTO products (image,title,price,description,company,incart) values ($1,$2,$3,$4,$5,$6)";
 
     return new Promise((resolve, reject) => {
-      pool.query(query, [title, price, description], (error, result) => {
-        if (error) {
-          reject(error);
+      pool.query(
+        query,
+        [image, title, price, description, company, incart],
+        (error, result) => {
+          if (error) {
+            reject(error);
+          }
+          resolve(result.rows);
         }
-        resolve(result.rows);
-      });
+      );
     });
   } else {
     throw Error;
@@ -62,7 +73,6 @@ const deleteProduct = async productId => {
 
 const updateProduct = async (content, productId) => {
   const query = "UPDATE products SET title=$1 WHERE id=$2";
-  console.log(query);
   return new Promise((resolve, reject) => {
     pool.query(query, [content, productId], (error, result) => {
       if (error) {

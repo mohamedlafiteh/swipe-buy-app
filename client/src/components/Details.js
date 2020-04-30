@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Button, Card, Image } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { fetchProductsById } from ".././actions/productsActions";
+import "../styles/details.css";
 
 export class Details extends Component {
   componentWillMount() {
@@ -16,35 +17,139 @@ export class Details extends Component {
       "Loading....."
     ) : (
       <div>
-        <Card.Group>
-          <Card>
-            <Card.Content>
-              <Image
-                floated='right'
-                size='mini'
-                src={`${window.location.origin}/${product.image}`}
-              />
-
-              <Card.Header>{product.title}</Card.Header>
-              <Card.Meta>Price:{product.price}</Card.Meta>
-              <Card.Description>
-                Description: {product.description}
-              </Card.Description>
-            </Card.Content>
-            <Card.Content extra>
-              <div className='ui two buttons'>
-                <Link to='/cart'>
-                  <Button>Add To Cart</Button>
-                </Link>
-                <Link to='/'>
-                  <Button basic color='red'>
-                    Cancel
-                  </Button>
-                </Link>
+        <div class='product-view-container'>
+          <div class='content-container'>
+            <div class='left-container'>
+              <Link to='/'>
+                <div class='triangle-topleft'>
+                  <div class='back-arrow' id='buy-toaster'></div>
+                </div>
+              </Link>
+              <div class='product-image--container'>
+                <img
+                  class='product-image--featured'
+                  id='featured'
+                  src={`${window.location.origin}/${product.image}`}
+                  alt='toaster'
+                />
+                <ul class='product-image--list'>
+                  <li class='item-selected'>
+                    <img
+                      src={`${window.location.origin}/${product.image}`}
+                      class='product-image--item'
+                    />
+                  </li>
+                  <li>
+                    <img
+                      src={`${window.location.origin}/${product.image}`}
+                      class='product-image--item'
+                    />
+                  </li>
+                  <li>
+                    <img
+                      src={`${window.location.origin}/${product.image}`}
+                      class='product-image--item'
+                    />
+                  </li>
+                  <li>
+                    <img
+                      src={`${window.location.origin}/${product.image}`}
+                      class='product-image--item'
+                    />
+                  </li>
+                  <li>
+                    <img
+                      src={`${window.location.origin}/${product.image}`}
+                      class='product-image--item'
+                    />
+                  </li>
+                </ul>
               </div>
-            </Card.Content>
-          </Card>
-        </Card.Group>
+            </div>
+            <div class='right-container'>
+              <div>
+                <h1 class='title'>{product.title}</h1>
+                <h2 class='subtitle subtitle-container'>{product.company}</h2>
+                <div>
+                  <span class='rating'>
+                    <input
+                      type='radio'
+                      class='rating-input'
+                      id='rating-input-1-5'
+                      name='rating-input-1'
+                    />
+                    <label for='rating-input-1-5' class='rating-star'></label>
+                    <input
+                      type='radio'
+                      class='rating-input'
+                      id='rating-input-1-4'
+                      name='rating-input-1'
+                    />
+                    <label for='rating-input-1-4' class='rating-star'></label>
+                    <input
+                      type='radio'
+                      class='rating-input'
+                      id='rating-input-1-3'
+                      name='rating-input-1'
+                    />
+                    <label for='rating-input-1-3' class='rating-star'></label>
+                    <input
+                      type='radio'
+                      class='rating-input'
+                      id='rating-input-1-2'
+                      name='rating-input-1'
+                    />
+                    <label for='rating-input-1-2' class='rating-star'></label>
+                    <input
+                      type='radio'
+                      class='rating-input'
+                      id='rating-input-1-1'
+                      name='rating-input-1'
+                    />
+                    <label for='rating-input-1-1' class='rating-star'></label>
+                  </span>
+                  <span>
+                    <a href='#' class='reviews'>
+                      232 customer reviews
+                    </a>
+                  </span>
+                </div>
+              </div>
+              <span>
+                <p>
+                  Price:
+                  <span class='emphasize'>£ {product.price}</span>
+                </p>
+                <label for='quantity'>Quantity:</label>
+                <select name='quantity' class='select-dropdown'>
+                  <option value='1'>1</option>
+                  <option value='2'>2</option>
+                  <option value='3'>3</option>
+                </select>
+              </span>
+              <div>
+                <h2 class='title'>Product Description</h2>
+                <div class='subtitle-container'>
+                  <span>Size: 1-Pack</span>
+                  <span>|</span>
+                  <span>Color: Black</span>
+                </div>
+                <p className='description'>{product.description}</p>
+              </div>
+              <div>
+                <button class='my-btn flex-btn'>
+                  <span>
+                    <img
+                      src={`${window.location.origin}/${product.image}`}
+                      class='cart-icon'
+                    />
+                  </span>
+                  <span class='btn-text'>Add to Cart</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getToken } from "../api/getToken";
+import { Link } from "react-router-dom";
 import "../styles/login.css";
 
 export class LoginForm extends Component {
@@ -98,9 +99,11 @@ export class LoginForm extends Component {
                         <div class='text-center d-flex justify-content-between mt-4'>
                           <p>
                             Don't have account?{" "}
-                            <a href='#' class='font-italic text-muted'>
-                              <u>Sign Up</u>
-                            </a>
+                            <Link to='/sign-up-user'>
+                              <a href='#' class='font-italic text-muted'>
+                                <u>Sign Up</u>
+                              </a>
+                            </Link>
                           </p>
                         </div>
                       </form>
