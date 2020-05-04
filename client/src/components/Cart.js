@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import "../styles/cart.css";
 
 export class Cart extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
     return (
       <div class='containers-fluid'>

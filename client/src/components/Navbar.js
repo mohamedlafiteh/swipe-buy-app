@@ -17,7 +17,9 @@ export class Navbar extends Component {
     return (
       <>
         <Menu className='navContainer' inverted color='black '>
-          <Image className='nav-logo' src={pic} />
+          <Link to='/'>
+            <Image className='nav-logo' src={pic} />
+          </Link>
           <div className='first-items'>
             <Menu.Item
               as={Link}

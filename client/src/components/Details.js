@@ -5,6 +5,7 @@ import { Button, Card, Image } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { fetchProductsById } from ".././actions/productsActions";
 import "../styles/details.css";
+import currencyFormat from "../helpers/currencyFormat";
 
 export class Details extends Component {
   componentWillMount() {
@@ -118,7 +119,9 @@ export class Details extends Component {
               <span>
                 <p>
                   Price:
-                  <span class='emphasize'>£ {product.price}</span>
+                  <span class='emphasize'>
+                    {currencyFormat.currencyFormat(product.price)}
+                  </span>
                 </p>
                 <label for='quantity'>Quantity:</label>
                 <select name='quantity' class='select-dropdown'>

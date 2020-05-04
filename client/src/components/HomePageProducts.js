@@ -3,6 +3,7 @@ import { Button, Card, Image, Grid } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import ".././styles/HomePageProducts.css";
+import currencyFormat from "../helpers/currencyFormat";
 
 export class HomePageProducts extends Component {
   render() {
@@ -29,7 +30,7 @@ export class HomePageProducts extends Component {
               Company: <span>{company}</span>
             </p>
             <h1 className='products__subtitle'>
-              Price:<span>{price}</span>{" "}
+              Price:<span>{currencyFormat.currencyFormat(price)}</span>{" "}
             </h1>
           </div>
           <Link to={`/products/${id}`}>

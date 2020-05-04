@@ -21,7 +21,7 @@ export function fetchProductsById(id) {
       .then(data => {
         dispatch({
           type: "FETCH_PRODUCT_BY_ID",
-          payload: data
+          payload: data[0]
         });
       })
       .catch(error => {
