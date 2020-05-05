@@ -1,11 +1,12 @@
-export default function reducer(
-  state = {
-    products: [],
-    isFetching: false,
-    error: null
-  },
-  action
-) {
+const iniState = {
+  products: [],
+  filteredProducts: [],
+  category: "",
+  sorts: "",
+  isFetching: false,
+  error: null
+};
+export default function reducer(state = iniState, action) {
   switch (action.type) {
     case "FETCH_PRODUCTS": {
       return { ...state, isFetching: true };
@@ -17,13 +18,28 @@ export default function reducer(
       return {
         ...state,
         isFetching: false,
-
-        products: action.payload
+        products: action.payload,
+        filteredProducts: action.payload
       };
     }
+
+    case "FILTER_PRODUCT_BY_CATEGORIES":
+      return {
+        ...state,
+        filteredProducts: action.payload.products,
+        category: action.payload.category
+      };
+
+    case "ORDER_PRODUCTS_BY_PRICE":
+      return {
+        ...state,
+        filteredProducts: action.payload.products,
+        sorts: action.payload.sorts
+      };
     case "ADD_PRODUCT": {
       return [...state.products, action.payload];
     }
+
     case "UPDATE_PRODUCT": {
       const { id, text } = action.payload;
       const newText = [...state.products];
