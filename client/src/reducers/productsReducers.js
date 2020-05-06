@@ -23,7 +23,7 @@ export default function reducer(state = iniState, action) {
       };
     }
 
-    case "FILTER_PRODUCT_BY_CATEGORIES":
+    case "FILTER_PRODUCTS_BY_CATEGORIES":
       return {
         ...state,
         filteredProducts: action.payload.products,

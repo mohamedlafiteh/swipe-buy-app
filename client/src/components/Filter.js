@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { filterProducts, sortProducts } from ".././actions/productsActions";
+import { filterProducts, sortProducts } from "../actions/productsActions";
 import PropTypes from "prop-types";
+import "../styles/filteredProduct.css";
 
-class FilteredProducts extends Component {
+class Filter extends Component {
   render() {
     // console.log(this.props.products);
     return (
       <div className='row'>
-        <div className='col-md-4'>{`${this.props.filteredProducts.length} products found.`}</div>
-        <div className='col-md-4'>
+        <div>products:{this.props.filteredProducts.length}</div>
+        <div className='col-md-14 price-div-1'>
           <label>
-            Order by
             <select
               className='form-control'
               value={this.props.sorts}
@@ -22,16 +22,15 @@ class FilteredProducts extends Component {
                 );
               }}
             >
-              <option value=''>Select</option>
+              <option value=''>filter by Price</option>
               <option value='lowestprice'>Lowest to highest</option>
               <option value='highestprice'>Highest to lowest</option>
             </select>
           </label>
         </div>
-        <div className='col-md-4'>
+        <div className='col-md-18 price-div-2'>
           <label>
             {" "}
-            Filter category
             <select
               className='form-control'
               value={this.props.category}
@@ -42,7 +41,7 @@ class FilteredProducts extends Component {
                 );
               }}
             >
-              <option value=''>ALL</option>
+              <option value=''>Category</option>
               <option value='phones'>phones</option>
               <option value='shirts'>shirts</option>
             </select>
@@ -53,8 +52,8 @@ class FilteredProducts extends Component {
   }
 }
 
-FilteredProducts.defaultProps = {
-  product: {},
+Filter.defaultProps = {
+  products: {},
   filteredProducts: {}
 };
 
@@ -65,5 +64,5 @@ const mapStateToProps = state => ({
   sorts: state.products.sorts
 });
 export default connect(mapStateToProps, { filterProducts, sortProducts })(
-  FilteredProducts
+  Filter
 );

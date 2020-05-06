@@ -1,21 +1,18 @@
 import React, { Component } from "react";
-import { Button, Card, Image, Grid } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import ".././styles/HomePageProducts.css";
 import currencyFormat from "../helpers/currencyFormat";
+import { addToCart } from ".././actions/cartActions";
+import { connect } from "react-redux";
 
 export class HomePageProducts extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
-    const {
-      id,
-      title,
-      image,
-      price,
-      inCart,
-      company,
-      description
-    } = this.props.product;
+    const { id, title, image, price, company } = this.props.product;
+    console.log(typeof this.props.products);
     return (
       <div className='col-md-4 all-cards'>
         <div className='products__box'>
@@ -36,6 +33,19 @@ export class HomePageProducts extends Component {
           <Link to={`/products/${id}`}>
             <button className='products_buttons'>View Product</button>
           </Link>
+          <a href={`#/products/${id}`}>
+            <button
+              onClick={e =>
+                this.props.addToCart(
+                  this.props.cartProducts,
+                  this.props.product
+                )
+              }
+              className='products_buttons'
+            >
+              Add to cart
+            </button>
+          </a>
         </div>
       </div>
     );
@@ -52,4 +62,14 @@ HomePageProducts.propTypes = {
   }).isRequired
 };
 
-export default HomePageProducts;
+HomePageProducts.defaultProps = {
+  productS: {},
+  cartProducts: {}
+};
+
+const mapStateToProps = state => ({
+  products: state.products.filteredProducts,
+  cartProducts: state.cart.products
+});
+
+export default connect(mapStateToProps, { addToCart })(HomePageProducts);

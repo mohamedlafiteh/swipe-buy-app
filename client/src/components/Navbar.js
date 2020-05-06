@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Menu, Container, Dropdown, Image } from "semantic-ui-react";
+import { Menu, Image } from "semantic-ui-react";
 import { isLoggedIn } from "../api/isLoggedIn";
 import { logout } from "../api/logout";
 import ".././styles/navbar.css";
@@ -16,7 +16,7 @@ export class Navbar extends Component {
     const { activeItem } = this.state;
     return (
       <>
-        <Menu className='navContainer' inverted color='black '>
+        <Menu className='navContainer' inverted color='black'>
           <Link to='/'>
             <Image className='nav-logo' src={pic} />
           </Link>
