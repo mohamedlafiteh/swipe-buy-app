@@ -12,7 +12,7 @@ export class HomePageProducts extends Component {
   }
   render() {
     const { id, title, image, price, company } = this.props.product;
-    console.log(typeof this.props.products);
+    // console.log(typeof this.props.products);
     return (
       <div className='col-md-4 all-cards'>
         <div className='products__box'>

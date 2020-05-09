@@ -6,10 +6,8 @@ import "../styles/filteredProduct.css";
 
 class Filter extends Component {
   render() {
-    // console.log(this.props.products);
     return (
       <div className='row'>
-        <div>products:{this.props.filteredProducts.length}</div>
         <div className='col-md-14 price-div-1'>
           <label>
             <select

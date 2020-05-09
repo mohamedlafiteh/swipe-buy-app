@@ -3,6 +3,7 @@ const iniState = {
   filteredProducts: [],
   category: "",
   sorts: "",
+  inputValue: "",
   isFetching: false,
   error: null
 };
@@ -28,6 +29,13 @@ export default function reducer(state = iniState, action) {
         ...state,
         filteredProducts: action.payload.products,
         category: action.payload.category
+      };
+
+    case "FILTER_PRODUCTS_BY_INPUT_TEXT":
+      return {
+        ...state,
+        filteredProducts: action.payload.products,
+        inputValue: action.payload.inputValue
       };
 
     case "ORDER_PRODUCTS_BY_PRICE":
