@@ -33,7 +33,7 @@ SearchInput.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  products: state.products.filteredProducts,
+  products: state.products.products,
   inputValue: state.products.inputValue
 });
 

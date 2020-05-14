@@ -2,7 +2,7 @@ const iniState = {
   products: [],
   filteredProducts: [],
   category: "",
-  sorts: "",
+  priceSort: "",
   inputValue: "",
   isFetching: false,
   error: null
@@ -42,7 +42,7 @@ export default function reducer(state = iniState, action) {
       return {
         ...state,
         filteredProducts: action.payload.products,
-        sorts: action.payload.sorts
+        priceSort: action.payload.priceSort
       };
     case "ADD_PRODUCT": {
       return [...state.products, action.payload];

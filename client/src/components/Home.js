@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchProducts } from ".././actions/productsActions";
-import HomePageProducts from "./HomePageProducts";
+import HomePageProduct from "./HomePageProduct";
 import MainSlider from "./carousel/MainSlider";
 import ".././styles/home.css";
 
@@ -21,7 +21,7 @@ class Home extends React.Component {
         <div className='container'>
           <div className='row'>
             {products.map((product, index) => {
-              return <HomePageProducts key={index} product={product} />;
+              return <HomePageProduct key={index} product={product} />;
             })}
           </div>
         </div>
@@ -32,7 +32,24 @@ class Home extends React.Component {
 
 const mapStateToProps = store => {
   return {
-    products: store.products.products
+    products: store.products.products.filter(product => {
+      var selectedCategory = store.products.category;
+      var selectedPrice = store.products.priceSort;
+
+      if (selectedCategory === "") {
+        return true;
+      }
+      if (selectedCategory === product.category) {
+        return true;
+      }
+
+      if (selectedPrice === "") {
+        return true;
+      }
+      // if (selectedPrice === product.priceSort) {
+      //   return true;
+      // }
+    })
   };
 };
 

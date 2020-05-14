@@ -27,11 +27,11 @@ export const filterProducts = (products, category) => dispatch => {
   });
 };
 
-export const sortProducts = (products, sorts) => dispatch => {
-  const productsAll = products.slice();
-  if (sorts !== "") {
+export const sortProductsByPrice = (products, priceSort) => dispatch => {
+  const productsAll = products;
+  if (priceSort !== "") {
     productsAll.sort((a, b) =>
-      sorts === "lowestprice"
+      priceSort === "lowestprice"
         ? Number(a.price) > Number(b.price)
           ? 1
           : -1
@@ -45,7 +45,7 @@ export const sortProducts = (products, sorts) => dispatch => {
   dispatch({
     type: "ORDER_PRODUCTS_BY_PRICE",
     payload: {
-      sorts: sorts,
+      priceSort: priceSort,
       products: productsAll
     }
   });
@@ -71,7 +71,6 @@ export const searchFilter = (products, inputValue) => dispatch => {
   var inputText = inputValue.toUpperCase();
   var titleName, company, description, category;
   var newArr = [];
-  var all = products;
 
   for (var i = 0; i < products.length; i++) {
     titleName = products[i].title;

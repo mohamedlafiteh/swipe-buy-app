@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import ".././styles/HomePageProducts.css";
 import currencyFormat from "../helpers/currencyFormat";
-import { addToCart } from ".././actions/cartActions";
+import { addToCart } from "../actions/cartActions";
 import { connect } from "react-redux";
 
-export class HomePageProducts extends Component {
+export class HomePageProduct extends Component {
   constructor(props) {
     super(props);
   }
@@ -52,7 +52,7 @@ export class HomePageProducts extends Component {
   }
 }
 
-HomePageProducts.propTypes = {
+HomePageProduct.propTypes = {
   product: PropTypes.shape({
     id: PropTypes.number,
     img: PropTypes.string,
@@ -62,14 +62,12 @@ HomePageProducts.propTypes = {
   }).isRequired
 };
 
-HomePageProducts.defaultProps = {
-  productS: {},
+HomePageProduct.defaultProps = {
   cartProducts: {}
 };
 
 const mapStateToProps = state => ({
-  products: state.products.filteredProducts,
   cartProducts: state.cart.products
 });
 
-export default connect(mapStateToProps, { addToCart })(HomePageProducts);
+export default connect(mapStateToProps, { addToCart })(HomePageProduct);

@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { filterProducts, sortProducts } from "../actions/productsActions";
+import {
+  filterProducts,
+  sortProductsByPrice
+} from "../actions/productsActions";
 import PropTypes from "prop-types";
 import "../styles/filteredProduct.css";
 
@@ -12,9 +15,9 @@ class Filter extends Component {
           <label>
             <select
               className='form-control'
-              value={this.props.sorts}
+              value={this.props.priceSort}
               onChange={event => {
-                this.props.sortProducts(
+                this.props.sortProductsByPrice(
                   this.props.filteredProducts,
                   event.target.value
                 );
@@ -59,8 +62,9 @@ const mapStateToProps = state => ({
   products: state.products.products,
   filteredProducts: state.products.filteredProducts,
   category: state.products.category,
-  sorts: state.products.sorts
+  priceSort: state.products.priceSort
 });
-export default connect(mapStateToProps, { filterProducts, sortProducts })(
-  Filter
-);
+export default connect(mapStateToProps, {
+  filterProducts,
+  sortProductsByPrice
+})(Filter);
