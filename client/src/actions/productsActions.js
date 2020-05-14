@@ -86,8 +86,6 @@ export const searchFilter = (products, inputValue) => dispatch => {
       category.toUpperCase().indexOf(inputText) > -1
     ) {
       newArr.push(products[i]);
-    } else {
-      console.log('not found')
     }
   }
 

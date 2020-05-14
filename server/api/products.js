@@ -7,7 +7,6 @@ router.get("/", (req, res) => {
   prodsDB
     .listProducts()
     .then(products => {
-      console.log(typeof products[0].id);
       return res.send(products);
     })
     .catch(e => {

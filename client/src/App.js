@@ -23,32 +23,34 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <div className='App'>
-          <Navbar />
+        <div className='app-container'>
+          <div className='App'>
+            <Navbar />
+          </div>
+          <Categories />
+
+          <div className='body-container'>
+            <Switch>
+              <Route exact path='/login' component={LoginForm} />
+              <Route
+                exact
+                path='/sign-up-user'
+                component={UserRegistrationForm}
+              />
+              <Route exact path='/' component={Home} />
+              <Route exact path='/admin' component={Admin} />
+              <Route exact path='/products/:id' component={Details} />
+
+              <Route exact path='/cart' component={Cart} />
+              <Route exact path='/add-advert' component={AddAdvertForm} />
+              <Route exact path='/about' component={About} />
+              <Route exact path='/contact-us' component={ContactUs} />
+              <Route component={ErrorPage} />
+            </Switch>
+          </div>
+
+          <Footer />
         </div>
-        <Categories />
-
-        <div className='body-container'>
-          <Switch>
-            <Route exact path='/login' component={LoginForm} />
-            <Route
-              exact
-              path='/sign-up-user'
-              component={UserRegistrationForm}
-            />
-            <Route exact path='/' component={Home} />
-            <Route exact path='/admin' component={Admin} />
-            <Route exact path='/products/:id' component={Details} />
-
-            <Route exact path='/cart' component={Cart} />
-            <Route exact path='/add-advert' component={AddAdvertForm} />
-            <Route exact path='/about' component={About} />
-            <Route exact path='/contact-us' component={ContactUs} />
-            <Route component={ErrorPage} />
-          </Switch>
-        </div>
-
-        <Footer />
       </>
     );
   }
