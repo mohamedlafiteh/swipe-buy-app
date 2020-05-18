@@ -4,6 +4,11 @@ import { fetchProducts } from ".././actions/productsActions";
 import HomePageProduct from "./HomePageProduct";
 import MainSlider from "./carousel/MainSlider";
 import ".././styles/home.css";
+import {
+  filterByCategory,
+  sortByPrice,
+  searchFilter
+} from "../helpers/filterByCategory";
 
 class Home extends React.Component {
   componentDidMount() {
@@ -32,24 +37,10 @@ class Home extends React.Component {
 
 const mapStateToProps = store => {
   return {
-    products: store.products.products.filter(product => {
-      var selectedCategory = store.products.category;
-      var selectedPrice = store.products.priceSort;
-
-      if (selectedCategory === "") {
-        return true;
-      }
-      if (selectedCategory === product.category) {
-        return true;
-      }
-
-      if (selectedPrice === "") {
-        return true;
-      }
-      // if (selectedPrice === product.priceSort) {
-      //   return true;
-      // }
-    })
+    products: store.products.products
+      .filter(product => filterByCategory(product, store.products.category))
+      .sort(product => sortByPrice(product, store.products.priceSort))
+      .filter(product => searchFilter(product, store.products.inputValue))
   };
 };
 
