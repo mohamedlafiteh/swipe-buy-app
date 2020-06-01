@@ -1,11 +1,10 @@
 const iniState = {
   products: [],
-  filteredProducts: [],
   category: "",
   priceSort: "",
   inputValue: "",
   isFetching: false,
-  error: null
+  error: null,
 };
 export default function reducer(state = iniState, action) {
   switch (action.type) {
@@ -20,29 +19,29 @@ export default function reducer(state = iniState, action) {
         ...state,
         isFetching: false,
         products: action.payload,
-        filteredProducts: action.payload
+        filteredProducts: action.payload,
       };
     }
 
     case "FILTER_PRODUCTS_BY_CATEGORIES":
       return {
         ...state,
-        filteredProducts: action.payload.products,
-        category: action.payload.category
+
+        category: action.payload.category,
       };
 
     case "FILTER_PRODUCTS_BY_INPUT_TEXT":
       return {
         ...state,
-        filteredProducts: action.payload.products,
-        inputValue: action.payload.inputValue
+
+        inputValue: action.payload.inputValue,
       };
 
     case "ORDER_PRODUCTS_BY_PRICE":
       return {
         ...state,
-        filteredProducts: action.payload.products,
-        priceSort: action.payload.priceSort
+
+        priceSort: action.payload.priceSort,
       };
     case "ADD_PRODUCT": {
       return [...state.products, action.payload];
@@ -51,7 +50,7 @@ export default function reducer(state = iniState, action) {
     case "UPDATE_PRODUCT": {
       const { id, text } = action.payload;
       const newText = [...state.products];
-      const textToUpdate = newText.findIndex(product => product.id === id);
+      const textToUpdate = newText.findIndex((product) => product.id === id);
       newText[textToUpdate] = action.payload;
 
       return { ...state, products: newText };
@@ -60,15 +59,15 @@ export default function reducer(state = iniState, action) {
       return {
         ...state,
         products: state.products.filter(
-          product => product.id !== action.payload
-        )
+          (product) => product.id !== action.payload
+        ),
       };
     }
     case "FETCH_PRODUCT_BY_ID": {
       return {
         ...state,
         isFetching: false,
-        selectedProduct: action.payload
+        selectedProduct: action.payload,
       };
     }
   }

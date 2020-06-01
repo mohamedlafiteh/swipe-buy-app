@@ -7,7 +7,7 @@ import ".././styles/home.css";
 import {
   filterByCategory,
   sortByPrice,
-  searchFilter
+  searchFilter,
 } from "../helpers/filterByCategory";
 
 class Home extends React.Component {
@@ -35,12 +35,12 @@ class Home extends React.Component {
   }
 }
 
-const mapStateToProps = store => {
+const mapStateToProps = (store) => {
   return {
     products: store.products.products
-      .filter(product => filterByCategory(product, store.products.category))
-      .sort(product => sortByPrice(product, store.products.priceSort))
-      .filter(product => searchFilter(product, store.products.inputValue))
+      .filter((product) => filterByCategory(product, store.products.category))
+      .sort((product) => sortByPrice(product, store.products.priceSort))
+      .filter((product) => searchFilter(product, store.products.inputValue)),
   };
 };
 

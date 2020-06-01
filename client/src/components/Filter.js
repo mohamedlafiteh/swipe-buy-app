@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import {
   filterProducts,
-  sortProductsByPrice
+  sortProductsByPrice,
 } from "../actions/productsActions";
 import PropTypes from "prop-types";
 import "../styles/filteredProduct.css";
@@ -16,11 +16,8 @@ class Filter extends Component {
             <select
               className='form-control'
               value={this.props.priceSort}
-              onChange={event => {
-                this.props.sortProductsByPrice(
-                  this.props.filteredProducts,
-                  event.target.value
-                );
+              onChange={(event) => {
+                this.props.sortProductsByPrice(event.target.value);
               }}
             >
               <option value=''>filter by Price</option>
@@ -35,11 +32,8 @@ class Filter extends Component {
             <select
               className='form-control'
               value={this.props.category}
-              onChange={event => {
-                this.props.filterProducts(
-                  this.props.products,
-                  event.target.value
-                );
+              onChange={(event) => {
+                this.props.filterProducts(event.target.value);
               }}
             >
               <option value=''>Category</option>
@@ -53,18 +47,15 @@ class Filter extends Component {
   }
 }
 
-Filter.defaultProps = {
-  products: {},
-  filteredProducts: {}
-};
+// Filter.defaultProps = {
+//   products: {},
+// };
 
-const mapStateToProps = state => ({
-  products: state.products.products,
-  filteredProducts: state.products.filteredProducts,
+const mapStateToProps = (state) => ({
   category: state.products.category,
-  priceSort: state.products.priceSort
+  priceSort: state.products.priceSort,
 });
 export default connect(mapStateToProps, {
   filterProducts,
-  sortProductsByPrice
+  sortProductsByPrice,
 })(Filter);

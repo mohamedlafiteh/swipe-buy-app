@@ -7,7 +7,7 @@ describe("Home", () => {
         id: "something",
         title: "Some title",
         company: "Nike",
-        category: "fruits"
+        category: "fruits",
       };
       const result = filterByCategory(dummyProduct, "shoes");
 
@@ -24,7 +24,7 @@ describe("Home", () => {
         id: "apple-id",
         title: "apple",
         company: "United fruit company",
-        category: "fruits"
+        category: "fruits",
       };
       const result = filterByCategory(apple, "fruits");
       expect(result).toEqual(true);
@@ -35,12 +35,48 @@ describe("Home", () => {
         id: "apple-id",
         title: "apple",
         company: "United fruit company",
-        category: "fruits"
+        category: "fruits",
       };
       const result = filterByCategory(apple, "vegetables");
       expect(result).toEqual(false);
     });
   });
 
-  describe("sortByPrice", () => {});
+  describe("sortByPrice", () => {
+    it("should return the products sorted from low to high price when the selected sort is lowestprice ", () => {
+      const products = [
+        {
+          id: "1",
+          title: "apple",
+          company: "United fruit company",
+          category: "phones",
+          price: 10,
+        },
+        {
+          id: "2",
+          title: "apple",
+          company: "United fruit company",
+          category: "phones",
+          price: 20,
+        },
+      ];
+      const result = sortByPrice(products, "lowestprice");
+      expect(result).toEqual([
+        {
+          id: "1",
+          title: "apple",
+          company: "United fruit company",
+          category: "phones",
+          price: 10,
+        },
+        {
+          id: "2",
+          title: "apple",
+          company: "United fruit company",
+          category: "phones",
+          price: 20,
+        },
+      ]);
+    });
+  });
 });

@@ -2,7 +2,10 @@ export const filterByCategory = (product, selectedCategory) =>
   selectedCategory === "" || selectedCategory === product.category;
 
 export const sortByPrice = (products, priceSort) => {
-  let all = [products];
+  let all = [products.price];
+
+  console.log("products:", all);
+
   if (priceSort !== "") {
     all.sort((a, b) =>
       priceSort === "lowestprice"
@@ -25,7 +28,6 @@ export const searchFilter = (products, inputValue) => {
   var inputText = inputValue.toUpperCase();
   var titleName, company, description, category;
   var newArr = [];
-  console.log(all);
 
   for (var i = 0; i < all.length; i++) {
     titleName = all[i].title;

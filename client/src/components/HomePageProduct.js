@@ -12,7 +12,7 @@ export class HomePageProduct extends Component {
   }
   render() {
     const { id, title, image, price, company } = this.props.product;
-    // console.log(typeof this.props.products);
+    // console.log(typeof price);
     return (
       <div className='col-md-4 all-cards'>
         <div className='products__box'>
@@ -35,7 +35,7 @@ export class HomePageProduct extends Component {
           </Link>
           <a href={`#/products/${id}`}>
             <button
-              onClick={e =>
+              onClick={(e) =>
                 this.props.addToCart(
                   this.props.cartProducts,
                   this.props.product
@@ -58,16 +58,16 @@ HomePageProduct.propTypes = {
     img: PropTypes.string,
     title: PropTypes.string,
     price: PropTypes.number,
-    inCard: PropTypes.bool
-  }).isRequired
+    inCard: PropTypes.bool,
+  }).isRequired,
 };
 
 HomePageProduct.defaultProps = {
-  cartProducts: {}
+  cartProducts: {},
 };
 
-const mapStateToProps = state => ({
-  cartProducts: state.cart.products
+const mapStateToProps = (state) => ({
+  cartProducts: state.cart.products,
 });
 
 export default connect(mapStateToProps, { addToCart })(HomePageProduct);
