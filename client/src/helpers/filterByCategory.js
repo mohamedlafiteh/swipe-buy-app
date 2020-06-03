@@ -2,13 +2,9 @@ export const filterByCategory = (product, selectedCategory) =>
   selectedCategory === "" || selectedCategory === product.category;
 
 export const sortByPrice = (products, priceSort) => {
-  let all = [products.price];
-
-  console.log("products:", all);
-
-  if (priceSort !== "") {
-    all.sort((a, b) =>
-      priceSort === "lowestprice"
+  if (priceSort) {
+    return products.sort((a, b) =>
+      priceSort === "lowestPrice"
         ? Number(a.price) > Number(b.price)
           ? 1
           : -1
@@ -16,9 +12,9 @@ export const sortByPrice = (products, priceSort) => {
         ? 1
         : -1
     );
-  } else {
-    all.sort((a, b) => (a.id > b.id ? 1 : -1));
   }
+
+  return products.sort((a, b) => (a.id > b.id ? 1 : -1));
 };
 
 //issue when i sort the category first the price sort doesn't work

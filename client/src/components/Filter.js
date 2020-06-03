@@ -21,8 +21,8 @@ class Filter extends Component {
               }}
             >
               <option value=''>filter by Price</option>
-              <option value='lowestprice'>Lowest to highest</option>
-              <option value='highestprice'>Highest to lowest</option>
+              <option value='lowestPrice'>Lowest to highest</option>
+              <option value='highestPrice'>Highest to lowest</option>
             </select>
           </label>
         </div>

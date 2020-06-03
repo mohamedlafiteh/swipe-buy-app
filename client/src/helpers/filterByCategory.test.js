@@ -43,7 +43,7 @@ describe("Home", () => {
   });
 
   describe("sortByPrice", () => {
-    it("should return the products sorted from low to high price when the selected sort is lowestprice ", () => {
+    it("should return the products sorted from low to high price when the selected sort is lowestPrice ", () => {
       const products = [
         {
           id: "1",
@@ -60,7 +60,7 @@ describe("Home", () => {
           price: 20,
         },
       ];
-      const result = sortByPrice(products, "lowestprice");
+      const result = sortByPrice(products, "lowestPrice");
       expect(result).toEqual([
         {
           id: "1",
@@ -75,6 +75,42 @@ describe("Home", () => {
           company: "United fruit company",
           category: "phones",
           price: 20,
+        },
+      ]);
+    });
+
+    it("should return the products sorted from high to low price when the selected sort is highestPrice ", () => {
+      const products = [
+        {
+          id: "1",
+          title: "apple",
+          company: "United fruit company",
+          category: "phones",
+          price: 10,
+        },
+        {
+          id: "2",
+          title: "apple",
+          company: "United fruit company",
+          category: "phones",
+          price: 20,
+        },
+      ];
+      const result = sortByPrice(products, "highestPrice");
+      expect(result).toEqual([
+        {
+          id: "2",
+          title: "apple",
+          company: "United fruit company",
+          category: "phones",
+          price: 20,
+        },
+        {
+          id: "1",
+          title: "apple",
+          company: "United fruit company",
+          category: "phones",
+          price: 10,
         },
       ]);
     });
