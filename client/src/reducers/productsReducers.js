@@ -33,7 +33,6 @@ export default function reducer(state = iniState, action) {
     case "FILTER_PRODUCTS_BY_INPUT_TEXT":
       return {
         ...state,
-
         inputValue: action.payload.inputValue,
       };
 

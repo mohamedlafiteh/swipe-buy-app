@@ -4,13 +4,11 @@ import { fetchProducts } from ".././actions/productsActions";
 import HomePageProduct from "./HomePageProduct";
 import MainSlider from "./carousel/MainSlider";
 import ".././styles/home.css";
-import {
-  filterByCategory,
-  sortByPrice,
-  searchFilter,
-} from "../helpers/filterByCategory";
+import { filterByCategory } from "../helpers/filterByCategory";
+import { priceSort } from "../helpers/priceSort";
+import { searchFilter } from "../helpers/searchFilter";
 
-class Home extends React.Component {
+class Home extends Component {
   componentDidMount() {
     this.props.dispatch(fetchProducts());
   }
@@ -35,15 +33,6 @@ class Home extends React.Component {
   }
 }
 
-const priceSort = (a, b, priceSort) =>
-  priceSort === "lowestPrice"
-    ? Number(a.price) > Number(b.price)
-      ? 1
-      : -1
-    : Number(a.price) < Number(b.price)
-    ? 1
-    : -1;
-
 export const mapStateToProps = (store) => {
   // const filteredProducts = store.products.products
   //   .filter((product) => filterByCategory(product, store.products.category))
@@ -53,7 +42,9 @@ export const mapStateToProps = (store) => {
     products: store.products.products
       .filter((product) => filterByCategory(product, store.products.category))
       .sort((a, b) => priceSort(a, b, store.products.priceSort))
-      .filter((product) => searchFilter(product, store.products.inputValue)),
+      .filter((product, a, b) =>
+        searchFilter(product, store.products.inputValue)
+      ),
   };
 };
 
