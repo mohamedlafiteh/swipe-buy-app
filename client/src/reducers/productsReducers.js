@@ -19,7 +19,6 @@ export default function reducer(state = iniState, action) {
         ...state,
         isFetching: false,
         products: action.payload,
-        filteredProducts: action.payload,
       };
     }
 

@@ -34,35 +34,54 @@ class Home extends Component {
 }
 
 export const mapStateToProps = (store) => {
+  console.table(store);
   // const filteredProducts = store.products.products
   //   .filter((product) => filterByCategory(product, store.products.category))
   //   .filter((product) => searchFilter(product, store.products.inputValue));
   return {
     // products: sortByPrice(filteredProducts, store.products.priceSort),
+
     products: store.products.products
       .filter((product) => filterByCategory(product, store.products.category))
       .sort((a, b) => priceSort(a, b, store.products.priceSort))
-      .filter((product, a, b) =>
-        searchFilter(product, store.products.inputValue)
-      ),
+      .filter((product) => searchFilter(product, store.products.inputValue)),
   };
 };
 
 const fakeStoreData = {
+  cart: {},
+  user: {
+    user: {
+      id: null,
+      name: "mo",
+      age: null,
+    },
+    fetching: false,
+    fetched: false,
+    error: null,
+  },
   products: {
-    category: "phones",
-    inputValue: "iphone",
-    priceSort: "lowestPrice",
+    category: "",
+    inputValue: "",
+    priceSort: "",
+    isFetching: false,
+    error: null,
+    fetching: false,
+    fetched: false,
+    user: {},
     products: [
       {
-        id: "2",
+        id: "1",
+        image: "img/product-1.png",
         title: "apple",
         company: "United fruit company",
         category: "phones",
         price: 20,
+        incart: false,
+        description: "some text",
       },
       {
-        id: "1",
+        id: "2",
         title: "apple",
         company: "United fruit company",
         category: "phones",

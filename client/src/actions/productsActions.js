@@ -49,31 +49,10 @@ export function fetchProductsById(id) {
 }
 
 export const searchFilter = (products, inputValue) => (dispatch) => {
-  var inputText = inputValue.toUpperCase();
-  var titleName, company, description, category;
-  var newArr = [];
-
-  for (var i = 0; i < products.length; i++) {
-    titleName = products[i].title;
-    company = products[i].company;
-    description = products[i].description;
-    category = products[i].category;
-
-    if (
-      titleName.toUpperCase().indexOf(inputText) > -1 ||
-      company.toUpperCase().indexOf(inputText) > -1 ||
-      description.toUpperCase().indexOf(inputText) > -1 ||
-      category.toUpperCase().indexOf(inputText) > -1
-    ) {
-      newArr.push(products[i]);
-    }
-  }
-
   dispatch({
     type: "FILTER_PRODUCTS_BY_INPUT_TEXT",
     payload: {
       inputValue: inputValue,
-      products: newArr,
     },
   });
 };
