@@ -1,4 +1,8 @@
-export default function(state = {}, action) {
+const iniState = {
+  products: [],
+};
+
+export default function (state = iniState, action) {
   switch (action.type) {
     case "ADD_TO_CART":
       return { ...state, products: action.payload.cartProducts };

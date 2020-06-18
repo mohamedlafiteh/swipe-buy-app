@@ -34,7 +34,6 @@ class Home extends Component {
 }
 
 export const mapStateToProps = (store) => {
-  console.table(store);
   // const filteredProducts = store.products.products
   //   .filter((product) => filterByCategory(product, store.products.category))
   //   .filter((product) => searchFilter(product, store.products.inputValue));

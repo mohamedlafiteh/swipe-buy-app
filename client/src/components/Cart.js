@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import currencyFormat from "../helpers/currencyFormat";
-import { addToCart, removeFromCart } from ".././actions/cartActions";
+import { removeFromCart } from ".././actions/cartActions";
 import { connect } from "react-redux";
 
 import "../styles/cart.css";
@@ -13,6 +13,7 @@ export class Cart extends Component {
 
   render() {
     const { cartProducts } = this.props;
+
     return (
       <div className='alert alert-info'>
         {cartProducts.length === "undefined" ? (
@@ -22,16 +23,16 @@ export class Cart extends Component {
             You have {cartProducts.length} items in the basket. <hr />
           </div>
         )}
-        {cartProducts.length > "undefined" && (
+        {cartProducts.length > 0 ? (
           <div>
             <ul style={{ marginLeft: -25 }}>
-              {cartProducts.map(item => (
+              {cartProducts.map((item) => (
                 <li key={item.id}>
                   <b>{item.title}</b>
                   <button
                     style={{ float: "right" }}
                     className='btn btn-danger btn-xs'
-                    onClick={e =>
+                    onClick={(e) =>
                       this.props.removeFromCart(this.props.cartProducts, item)
                     }
                   >
@@ -56,17 +57,19 @@ export class Cart extends Component {
               checkout
             </button>
           </div>
+        ) : (
+          "No Items"
         )}
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  cartProducts: state.cart.products
+const mapStateToProps = (state) => ({
+  cartProducts: state.cart.products,
 });
 
-export default connect(mapStateToProps, { addToCart, removeFromCart })(Cart);
+export default connect(mapStateToProps, { removeFromCart })(Cart);
 
 // <div class='containers-fluid'>
 //   <div class='row'>

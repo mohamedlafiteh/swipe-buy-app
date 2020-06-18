@@ -25,7 +25,6 @@ export default function reducer(state = iniState, action) {
     case "FILTER_PRODUCTS_BY_CATEGORIES":
       return {
         ...state,
-
         category: action.payload.category,
       };
 

@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchProductsById } from ".././actions/productsActions";
+import { addToCart } from ".././actions/cartActions";
+
 import "../styles/details.css";
 import currencyFormat from "../helpers/currencyFormat";
 
@@ -163,7 +165,13 @@ export class Details extends Component {
                       className='cart-icon'
                     />
                   </span>
-                  <span className='btn-text'>Add to Cart</span>
+                  <span
+                    onClick={(e) =>
+                      this.props.addToCart(this.props.cartProducts, product)
+                    }
+                  >
+                    Add to Cart
+                  </span>
                 </button>
               </div>
             </div>
@@ -177,18 +185,19 @@ export class Details extends Component {
 Details.propTypes = {
   product: PropTypes.shape({
     title: PropTypes.string,
-    image: PropTypes.string
-  })
+    image: PropTypes.string,
+  }),
 };
 
 Details.defaultProps = {
-  product: {}
+  product: {},
 };
 
-const mapStateToProps = store => {
+const mapStateToProps = (store) => {
   return {
     product: store.products.selectedProduct,
-    isLoading: store.products.isFetching
+    isLoading: store.products.isFetching,
+    cartProducts: store.cart.products,
   };
 };
 
