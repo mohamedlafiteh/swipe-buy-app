@@ -1,7 +1,5 @@
 export const addToCart = (products, product) => (dispatch) => {
-  console.log("clicked", product);
   const cartProducts = products;
-  // console.log("moha>>>> " + typeof products);
 
   let productAlreadyInCart = false;
 

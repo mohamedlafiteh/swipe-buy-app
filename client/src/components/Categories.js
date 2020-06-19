@@ -3,12 +3,17 @@ import { Link } from "react-router-dom";
 import "../styles/categories.css";
 import Filter from "./Filter";
 import SearchInput from "./SearchInput";
+import { connect } from "react-redux";
 
-export class Categories extends Component {
+class Categories extends Component {
+  constructor(props) {
+    super(props);
+  }
   handleClick = () => {
     window.location.href = "/add-advert";
   };
   render() {
+    const { cartProducts } = this.props;
     return (
       <>
         <div id='flipkart-navbar'>
@@ -68,7 +73,7 @@ export class Categories extends Component {
                       ></path>
                     </svg>{" "}
                     Cart
-                    <span className='item-number '>0</span>
+                    <span className='item-number '>{cartProducts}</span>
                   </span>
                 </div>
               </Link>
@@ -80,4 +85,20 @@ export class Categories extends Component {
   }
 }
 
-export default Categories;
+Categories.defaultProps = {
+  cartProducts: {},
+};
+
+const mapStateToProps = (store) => {
+  if (store.cart.products.length == 0) {
+    return {
+      cartProducts: store.cart.products,
+    };
+  } else {
+    return {
+      cartProducts: store.cart.products.length,
+    };
+  }
+};
+
+export default connect(mapStateToProps)(Categories);
