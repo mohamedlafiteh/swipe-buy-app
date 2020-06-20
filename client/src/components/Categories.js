@@ -73,7 +73,9 @@ class Categories extends Component {
                       ></path>
                     </svg>{" "}
                     Cart
-                    <span className='item-number '>{cartProducts}</span>
+                    <span className='item-number '>
+                      {cartProducts.length == 0 ? 0 : cartProducts}
+                    </span>
                   </span>
                 </div>
               </Link>

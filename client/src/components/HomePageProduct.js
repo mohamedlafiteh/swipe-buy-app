@@ -12,7 +12,7 @@ export class HomePageProduct extends Component {
   }
   render() {
     const { id, title, image, price, company } = this.props.product;
-    // console.log(typeof price);
+    const { added } = this.props;
     return (
       <div className='col-md-4 all-cards'>
         <div className='products__box'>
@@ -66,8 +66,27 @@ HomePageProduct.defaultProps = {
   cartProducts: {},
 };
 
-const mapStateToProps = (state) => ({
-  cartProducts: state.cart.products,
-});
+// const mapStateToProps = (state) => {
+//   console.table(state.cart.products);
+//   return {
+//     cartProducts: state.cart.products,
+//   };
+// };
 
+const mapStateToProps = (state) => {
+  if (state.cart.products.length == 0) {
+    return {
+      cartProducts: state.cart.products,
+    };
+  } else {
+    return {
+      cartProducts: state.cart.products,
+      added: state.cart.products.map((item) => {
+        console.table(item);
+
+        return item.added;
+      }),
+    };
+  }
+};
 export default connect(mapStateToProps, { addToCart })(HomePageProduct);

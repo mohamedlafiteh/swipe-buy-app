@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import currencyFormat from "../helpers/currencyFormat";
-import { removeFromCart } from ".././actions/cartActions";
+import {
+  removeFromCart,
+  AddMoreSameItemInCart,
+  removeSomeOfItemsInCart,
+} from ".././actions/cartActions";
 import { connect } from "react-redux";
 
 import "../styles/cart.css";
@@ -13,7 +17,6 @@ export class Cart extends Component {
 
   render() {
     const { cartProducts } = this.props;
-
     return (
       <div className='alert alert-info'>
         {cartProducts.length === "undefined" ? (
@@ -29,6 +32,30 @@ export class Cart extends Component {
               {cartProducts.map((item) => (
                 <li key={item.id}>
                   <b>{item.title}</b>
+                  <button
+                    style={{ float: "right" }}
+                    className='btn primary btn-xs'
+                    onClick={(e) =>
+                      this.props.AddMoreSameItemInCart(
+                        this.props.cartProducts,
+                        item
+                      )
+                    }
+                  >
+                    Add
+                  </button>
+                  <button
+                    style={{ float: "right" }}
+                    className='btn primary btn-xs'
+                    onClick={(e) =>
+                      this.props.removeSomeOfItemsInCart(
+                        this.props.cartProducts,
+                        item
+                      )
+                    }
+                  >
+                    Reduce
+                  </button>
                   <button
                     style={{ float: "right" }}
                     className='btn btn-danger btn-xs'
@@ -65,8 +92,21 @@ export class Cart extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  cartProducts: state.cart.products,
-});
+const mapStateToProps = (state) => {
+  if (state.cart.products.length == 0) {
+    return {
+      cartProducts: state.cart.products,
+    };
+  } else {
+    return {
+      cartProducts: state.cart.products,
+      count: state.cart.products.map((item) => item.count),
+    };
+  }
+};
 
-export default connect(mapStateToProps, { removeFromCart })(Cart);
+export default connect(mapStateToProps, {
+  removeFromCart,
+  AddMoreSameItemInCart,
+  removeSomeOfItemsInCart,
+})(Cart);
