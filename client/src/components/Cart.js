@@ -3,7 +3,7 @@ import currencyFormat from "../helpers/currencyFormat";
 import {
   removeFromCart,
   AddMoreSameItemInCart,
-  removeSomeOfItemsInCart,
+  reduceSomeOfItemsInCart,
 } from ".././actions/cartActions";
 import { connect } from "react-redux";
 
@@ -48,7 +48,7 @@ export class Cart extends Component {
                     style={{ float: "right" }}
                     className='btn primary btn-xs'
                     onClick={(e) =>
-                      this.props.removeSomeOfItemsInCart(
+                      this.props.reduceSomeOfItemsInCart(
                         this.props.cartProducts,
                         item
                       )
@@ -108,5 +108,5 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   removeFromCart,
   AddMoreSameItemInCart,
-  removeSomeOfItemsInCart,
+  reduceSomeOfItemsInCart,
 })(Cart);

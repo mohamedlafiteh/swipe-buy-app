@@ -33,7 +33,7 @@ export const AddMoreSameItemInCart = (products, product) => (dispatch) => {
   dispatch({ type: "ADD_MORE_TO_CART_ITEMS", payload: { cartProducts } });
 };
 
-export const removeSomeOfItemsInCart = (products, product) => (dispatch) => {
+export const reduceSomeOfItemsInCart = (products, product) => (dispatch) => {
   const cartProducts = products;
 
   let productAlreadyInCart = false;

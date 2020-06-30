@@ -43,7 +43,7 @@ export class HomePageProduct extends Component {
               }
               className='products_buttons'
             >
-              Add to cart
+              {added ? "Added" : "Add to cart"}
             </button>
           </a>
         </div>
@@ -73,7 +73,8 @@ HomePageProduct.defaultProps = {
 //   };
 // };
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
+  console.log(ownProps.product.id);
   if (state.cart.products.length == 0) {
     return {
       cartProducts: state.cart.products,
@@ -81,11 +82,11 @@ const mapStateToProps = (state) => {
   } else {
     return {
       cartProducts: state.cart.products,
-      added: state.cart.products.map((item) => {
-        console.table(item);
-
-        return item.added;
-      }),
+      added: state.cart.products
+        .map((item) => {
+          return item.id;
+        })
+        .includes(ownProps.product.id),
     };
   }
 };
