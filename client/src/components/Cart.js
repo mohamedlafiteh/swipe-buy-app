@@ -44,18 +44,22 @@ export class Cart extends Component {
                   >
                     Add
                   </button>
-                  <button
-                    style={{ float: "right" }}
-                    className='btn primary btn-xs'
-                    onClick={(e) =>
-                      this.props.reduceSomeOfItemsInCart(
-                        this.props.cartProducts,
-                        item
-                      )
-                    }
-                  >
-                    Reduce
-                  </button>
+                  {item.count > 1 ? (
+                    <button
+                      style={{ float: "right" }}
+                      className='btn primary btn-xs'
+                      onClick={(e) =>
+                        this.props.reduceSomeOfItemsInCart(
+                          this.props.cartProducts,
+                          item
+                        )
+                      }
+                    >
+                      Reduce
+                    </button>
+                  ) : (
+                    ""
+                  )}
                   <button
                     style={{ float: "right" }}
                     className='btn btn-danger btn-xs'

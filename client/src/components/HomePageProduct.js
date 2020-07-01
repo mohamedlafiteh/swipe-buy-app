@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import ".././styles/HomePageProducts.css";
 import currencyFormat from "../helpers/currencyFormat";
-import { addToCart } from "../actions/cartActions";
+import { addToCart, removeFromCart } from "../actions/cartActions";
 import { connect } from "react-redux";
 
 export class HomePageProduct extends Component {
@@ -34,17 +34,36 @@ export class HomePageProduct extends Component {
             <button className='products_buttons'>View Product</button>
           </Link>
           <a href={`#/products/${id}`}>
-            <button
-              onClick={(e) =>
-                this.props.addToCart(
-                  this.props.cartProducts,
-                  this.props.product
-                )
-              }
-              className='products_buttons'
-            >
-              {added ? "Added" : "Add to cart"}
-            </button>
+            {added ? (
+              <div>
+                <button className='products_buttons btn btn-success'>
+                  Added
+                </button>
+                <button
+                  onClick={(e) =>
+                    this.props.removeFromCart(
+                      this.props.cartProducts,
+                      this.props.product
+                    )
+                  }
+                  className='products_buttons btn btn-danger'
+                >
+                  Cancel
+                </button>
+              </div>
+            ) : (
+              <button
+                onClick={(e) =>
+                  this.props.addToCart(
+                    this.props.cartProducts,
+                    this.props.product
+                  )
+                }
+                className='products_buttons'
+              >
+                Add to Cart
+              </button>
+            )}
           </a>
         </div>
       </div>
@@ -66,15 +85,7 @@ HomePageProduct.defaultProps = {
   cartProducts: {},
 };
 
-// const mapStateToProps = (state) => {
-//   console.table(state.cart.products);
-//   return {
-//     cartProducts: state.cart.products,
-//   };
-// };
-
 const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps.product.id);
   if (state.cart.products.length == 0) {
     return {
       cartProducts: state.cart.products,
@@ -90,4 +101,6 @@ const mapStateToProps = (state, ownProps) => {
     };
   }
 };
-export default connect(mapStateToProps, { addToCart })(HomePageProduct);
+export default connect(mapStateToProps, { addToCart, removeFromCart })(
+  HomePageProduct
+);

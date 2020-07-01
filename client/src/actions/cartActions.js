@@ -5,13 +5,12 @@ export const addToCart = (products, product) => (dispatch) => {
 
   cartProducts.forEach((cp) => {
     if (cp.id === product.id) {
-      cp.added = true;
       productAlreadyInCart = true;
     }
   });
 
   if (!productAlreadyInCart) {
-    cartProducts.push({ ...product, count: 1, added: false });
+    cartProducts.push({ ...product, count: 1 });
   }
   localStorage.setItem("cartItems", JSON.stringify(cartProducts));
   dispatch({ type: "ADD_TO_CART", payload: { cartProducts } });
@@ -41,6 +40,7 @@ export const reduceSomeOfItemsInCart = (products, product) => (dispatch) => {
   cartProducts.forEach((cp) => {
     if (cp.id === product.id) {
       cp.count -= 1;
+
       productAlreadyInCart = true;
     }
   });
@@ -54,3 +54,9 @@ export const removeFromCart = (products, product) => (dispatch) => {
   localStorage.setItem("cartItems", JSON.stringify(cartProducts));
   dispatch({ type: "REMOVE_FROM_CART", payload: { cartProducts } });
 };
+
+// export const cancelItemFromCart = (products, product) => (dispatch) => {
+//   const cartProducts = products.slice().filter((a) => a.id !== product.id);
+//   localStorage.setItem("cartItems", JSON.stringify(cartProducts));
+//   dispatch({ type: "REMOVE_FROM_CART", payload: { cartProducts } });
+// };
