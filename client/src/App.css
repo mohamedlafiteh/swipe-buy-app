@@ -4,9 +4,19 @@
   height: 100%;
 }
 
+.app-container {
+}
+
 .body-container {
   width: inherit;
   height: inherit;
   margin: 0;
   padding: 0;
 }
+
+/* .body-container {
+  width: inherit;
+  height: inherit;
+  margin: 0;
+  padding: 0;
+} */

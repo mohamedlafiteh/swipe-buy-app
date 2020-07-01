@@ -28,7 +28,10 @@ CREATE TABLE products
     price numeric (100),
     company VARCHAR (50),
     incart BOOLEAN NOT NULL,
-    description VARCHAR(500)
+    description VARCHAR(500),
+    category VARCHAR(80)
+
 );
+
 
 

@@ -7,7 +7,6 @@ router.get("/", (req, res) => {
   prodsDB
     .listProducts()
     .then(products => {
-      console.log("products list :" + typeof products[0].price);
       return res.send(products);
     })
     .catch(e => {
@@ -24,7 +23,7 @@ router.get("/:productId", (req, res) => {
   prodsDB
     .getProductById(productId)
     .then(re => {
-      return res.send(re[0]);
+      return res.send(re);
     })
     .catch(e => {
       res.status(404).send({

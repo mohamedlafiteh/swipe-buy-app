@@ -94,37 +94,37 @@ class UserRegisterationForm extends Component {
 
     return (
       <>
-        <header class='header'>
-          <nav class='navbar navbar-expand-lg navbar-light py-3'></nav>
+        <header className='header'>
+          <nav className='navbar navbar-expand-lg navbar-light py-3'></nav>
         </header>
 
-        <div class='container'>
-          <div class='row py-5 mt-4 align-items-center'>
-            <div class='col-md-5 pr-lg-5 mb-5 mb-md-0'>
+        <div className='container'>
+          <div className='row py-5 mt-4 align-items-center'>
+            <div className='col-md-5 pr-lg-5 mb-5 mb-md-0'>
               <img
                 src='https://res.cloudinary.com/mhmd/image/upload/v1569543678/form_d9sh6m.svg'
                 alt=''
-                class='img-fluid mb-3 d-none d-md-block'
+                className='img-fluid mb-3 d-none d-md-block'
               />
               <h1>Create an Account</h1>
-              <p class='font-italic text-muted mb-0'>
+              <p className='font-italic text-muted mb-0'>
                 You will experience the best shopping on Swipe-buy.
               </p>
-              <p class='font-italic text-muted'>
+              <p className='font-italic text-muted'>
                 This is the link for mor information{" "}
-                <a href='#' class='text-muted'>
+                <a href='#' className='text-muted'>
                   <u>About-Swipe-buy</u>
                 </a>
               </p>
             </div>
 
-            <div class='col-md-7 col-lg-6 ml-auto register-form'>
+            <div className='col-md-7 col-lg-6 ml-auto register-form'>
               <form action='#' onSubmit={this.handleSubmit}>
-                <div class='row'>
-                  <div class='input-group col-lg-6 mb-4'>
-                    <div class='input-group-prepend'>
-                      <span class='input-group-text bg-white px-4 border-md border-right-0'>
-                        <i class='fa fa-user text-muted'></i>
+                <div className='row'>
+                  <div className='input-group col-lg-6 mb-4'>
+                    <div className='input-group-prepend'>
+                      <span className='input-group-text bg-white px-4 border-md border-right-0'>
+                        <i className='fa fa-user text-muted'></i>
                       </span>
                     </div>
                     <input
@@ -134,13 +134,13 @@ class UserRegisterationForm extends Component {
                       id='firstName'
                       type='text'
                       placeholder='First Name'
-                      class='form-control bg-white border-left-0 border-md'
+                      className='form-control bg-white border-left-0 border-md'
                     />
                   </div>
-                  <div class='input-group col-lg-6 mb-4'>
-                    <div class='input-group-prepend'>
-                      <span class='input-group-text bg-white px-4 border-md border-right-0'>
-                        <i class='fa fa-user text-muted'></i>
+                  <div className='input-group col-lg-6 mb-4'>
+                    <div className='input-group-prepend'>
+                      <span className='input-group-text bg-white px-4 border-md border-right-0'>
+                        <i className='fa fa-user text-muted'></i>
                       </span>
                     </div>
                     <input
@@ -150,13 +150,13 @@ class UserRegisterationForm extends Component {
                       value={lastName}
                       onChange={this.handleChange}
                       placeholder='Last Name'
-                      class='form-control bg-white border-left-0 border-md'
+                      className='form-control bg-white border-left-0 border-md'
                     />
                   </div>
-                  <div class='input-group col-lg-12 mb-4'>
-                    <div class='input-group-prepend'>
-                      <span class='input-group-text bg-white px-4 border-md border-right-0'>
-                        <i class='fa fa-envelope text-muted'></i>
+                  <div className='input-group col-lg-12 mb-4'>
+                    <div className='input-group-prepend'>
+                      <span className='input-group-text bg-white px-4 border-md border-right-0'>
+                        <i className='fa fa-envelope text-muted'></i>
                       </span>
                     </div>
                     <input
@@ -166,20 +166,20 @@ class UserRegisterationForm extends Component {
                       value={email}
                       onChange={this.handleChange}
                       placeholder='Email Address'
-                      class='form-control bg-white border-left-0 border-md'
+                      className='form-control bg-white border-left-0 border-md'
                     />
                   </div>
-                  <div class='input-group col-lg-12 mb-4'>
-                    <div class='input-group-prepend'>
-                      <span class='input-group-text bg-white px-4 border-md border-right-0'>
-                        <i class='fa fa-phone-square text-muted'></i>
+                  <div className='input-group col-lg-12 mb-4'>
+                    <div className='input-group-prepend'>
+                      <span className='input-group-text bg-white px-4 border-md border-right-0'>
+                        <i className='fa fa-phone-square text-muted'></i>
                       </span>
                     </div>
                     <select
                       id='countryCode'
                       name='countryCode'
                       style={{ maxWidth: "80px" }}
-                      class='custom-select form-control bg-white border-left-0 border-md h-100 font-weight-bold text-muted'
+                      className='custom-select form-control bg-white border-left-0 border-md h-100 font-weight-bold text-muted'
                     >
                       <option value=''>+12</option>
                       <option value=''>+10</option>
@@ -193,14 +193,14 @@ class UserRegisterationForm extends Component {
                       value={phone}
                       onChange={this.handleChange}
                       placeholder='Phone Number'
-                      class='form-control bg-white border-md border-left-0 pl-3'
+                      className='form-control bg-white border-md border-left-0 pl-3'
                     />
                   </div>
                   .
-                  <div class='input-group col-lg-12 mb-4'>
-                    <div class='input-group-prepend'>
-                      <span class='input-group-text bg-white px-4 border-md border-right-0'>
-                        <i class='fa fa-black-tie text-muted'></i>
+                  <div className='input-group col-lg-12 mb-4'>
+                    <div className='input-group-prepend'>
+                      <span className='input-group-text bg-white px-4 border-md border-right-0'>
+                        <i className='fa fa-black-tie text-muted'></i>
                       </span>
                     </div>
                     <select
@@ -208,7 +208,7 @@ class UserRegisterationForm extends Component {
                       id='country'
                       name='country'
                       value={country}
-                      class='form-control custom-select bg-white border-left-0 border-md'
+                      className='form-control custom-select bg-white border-left-0 border-md'
                     >
                       <option value='select'>Select Your Country</option>
                       <option value='Afganistan'>Afghanistan</option>
@@ -503,10 +503,10 @@ class UserRegisterationForm extends Component {
                       <option value='Zimbabwe'>Zimbabwe</option>
                     </select>
                   </div>
-                  <div class='input-group col-lg-6 mb-4'>
-                    <div class='input-group-prepend'>
-                      <span class='input-group-text bg-white px-4 border-md border-right-0'>
-                        <i class='fa fa-lock text-muted'></i>
+                  <div className='input-group col-lg-6 mb-4'>
+                    <div className='input-group-prepend'>
+                      <span className='input-group-text bg-white px-4 border-md border-right-0'>
+                        <i className='fa fa-lock text-muted'></i>
                       </span>
                     </div>
                     <input
@@ -516,13 +516,13 @@ class UserRegisterationForm extends Component {
                       value={password}
                       onChange={this.handleChange}
                       placeholder='Password'
-                      class='form-control bg-white border-left-0 border-md'
+                      className='form-control bg-white border-left-0 border-md'
                     />
                   </div>
-                  <div class='input-group col-lg-6 mb-4'>
-                    <div class='input-group-prepend'>
-                      <span class='input-group-text bg-white px-4 border-md border-right-0'>
-                        <i class='fa fa-lock text-muted'></i>
+                  <div className='input-group col-lg-6 mb-4'>
+                    <div className='input-group-prepend'>
+                      <span className='input-group-text bg-white px-4 border-md border-right-0'>
+                        <i className='fa fa-lock text-muted'></i>
                       </span>
                     </div>
                     <input
@@ -532,51 +532,51 @@ class UserRegisterationForm extends Component {
                       value={passwordConformation}
                       onChange={this.handleChange}
                       placeholder='Confirm Password'
-                      class='form-control bg-white border-left-0 border-md'
+                      className='form-control bg-white border-left-0 border-md'
                     />
                   </div>
-                  <div class='form-group col-lg-12 mx-auto mb-0'>
-                    <a href='#' class='btn btn-primary btn-block py-2'>
+                  <div className='form-group col-lg-12 mx-auto mb-0'>
+                    <a href='#' className='btn btn-primary btn-block py-2'>
                       <span
                         onClick={this.handleSubmit}
-                        class='font-weight-bold'
+                        className='font-weight-bold'
                       >
                         Create your account
                       </span>
                     </a>
                   </div>
-                  <div class='form-group col-lg-12 mx-auto d-flex align-items-center my-4'>
-                    <div class='border-bottom w-100 ml-5'></div>
-                    <span class='px-2 small text-muted font-weight-bold text-muted'>
+                  <div className='form-group col-lg-12 mx-auto d-flex align-items-center my-4'>
+                    <div className='border-bottom w-100 ml-5'></div>
+                    <span className='px-2 small text-muted font-weight-bold text-muted'>
                       OR
                     </span>
-                    <div class='border-bottom w-100 mr-5'></div>
+                    <div className='border-bottom w-100 mr-5'></div>
                   </div>
-                  <div class='form-group col-lg-12 mx-auto'>
+                  <div className='form-group col-lg-12 mx-auto'>
                     <a
                       href='#'
-                      class='btn btn-primary btn-block py-2 btn-facebook'
+                      className='btn btn-primary btn-block py-2 btn-facebook'
                     >
-                      <i class='fa fa-facebook-f mr-2'></i>
-                      <span class='font-weight-bold'>
+                      <i className='fa fa-facebook-f mr-2'></i>
+                      <span className='font-weight-bold'>
                         Continue with Facebook
                       </span>
                     </a>
                     <a
                       href='#'
-                      class='btn btn-primary btn-block py-2 btn-twitter'
+                      className='btn btn-primary btn-block py-2 btn-twitter'
                     >
-                      <i class='fa fa-twitter mr-2'></i>
-                      <span class='font-weight-bold'>
+                      <i className='fa fa-twitter mr-2'></i>
+                      <span className='font-weight-bold'>
                         Continue with Twitter
                       </span>
                     </a>
                   </div>
-                  <div class='text-center w-100'>
-                    <p class='text-muted font-weight-bold'>
+                  <div className='text-center w-100'>
+                    <p className='text-muted font-weight-bold'>
                       Already Registered?{" "}
                       <Link to='/login'>
-                        <a href='#' class='text-primary ml-2'>
+                        <a href='#' className='text-primary ml-2'>
                           Login
                         </a>
                       </Link>

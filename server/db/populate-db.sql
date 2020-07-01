@@ -14,44 +14,64 @@ values
 
 
 insert into products
-    (image,title,price,description,company,incart)
+    (image,title,price,description,company,incart,category)
 VALUES
-    ('img/product-1.png', 'Google Pixel - Black', 10, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'GOOGLE', false);
+    ('img/product-1.png', 'Google Pixel - Black', 5, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'GOOGLE', false, 'phones');
 
 insert into products
-    (image,title,price,description,company,incart)
+    (image,title,price,description,company,incart,category)
 VALUES
-    ('img/product-2.png', 'Samsung S7', 16, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'SAMSUNG', false);
+    ('img/product-2.png', 'Samsung S7', 15, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'SAMSUNG', false, 'phones');
 
 insert into products
-    (image,title,price,description,company,incart)
+    (image,title,price,description,company,incart,category)
 VALUES
-    ('img/product-3.png', 'HTC 10 - Black', 8, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'htc', false);
+    ('img/product-3.png', 'HTC 10 - Black', 10, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'htc', false, 'phones');
 
 insert into products
-    (image,title,price,description,company,incart)
+    (image,title,price,description,company,incart,category)
 VALUES
     ('img/product-4.png', 'HTC 10
-- White', 18, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'htc', false);
+- White', 18, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'htc', false, 'phones');
 
 insert into products
-    (image,title,price,description,company,incart)
+    (image,title,price,description,company,incart,category)
 VALUES
     ('img/product-5.png', 'HTC Desire
-626s', 24, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'htc', false);
+626s', 25, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'htc', false, 'phones');
 
 insert into products
-    (image,title,price,description,company,incart)
+    (image,title,price,description,company,incart,category)
 VALUES
-    ('img/product-6.png', 'Vintage Iphone', 17, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'apple', false);
+    ('img/product-6.png', 'Vintage Iphone', 30, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'apple', false, 'phones');
 
 insert into products
-    (image,title,price,description,company,incart)
+    (image,title,price,description,company,incart,category)
 VALUES
-    ('img/product-7.png', 'Iphone 7', 30, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'apple', false);
+    ('img/product-7.png', 'Iphone 7', 20, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'apple', false, 'phones');
 
 insert into products
-    (image,title,price,description,company,incart)
+    (image,title,price,description,company,incart,category)
 VALUES
-    ('img/product-8.png', 'Smashed Iphone', 2, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'apple', false);
+    ('img/product-8.png', 'Smashed Iphone', 40, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'apple', false, 'phones');
+
+insert into products
+    (image,title,price,description,company,incart,category)
+VALUES
+    ('img/shirt1.jpg', 'Shirt title', 35, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'apple', false, 'shirts');
+
+insert into products
+    (image,title,price,description,company,incart,category)
+VALUES
+    ('img/shirt2.jpg', 'Grey draw shirt', 55, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'apple', false, 'shirts');
+
+insert into products
+    (image,title,price,description,company,incart,category)
+VALUES
+    ('img/shirt3.jpg', 'Expanded shirt ', 45, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'apple', false, 'shirts');
+insert into products
+    (image,title,price,description,company,incart,category)
+VALUES
+    ('img/shirt4.jpg', 'Black shirt', 60, 'Lor ecrd on irdigan single-origin coffee lo-fi organi photo booth gentrify.', 'apple', false, 'shirts');
+
 
