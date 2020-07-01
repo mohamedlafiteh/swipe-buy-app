@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import currencyFormat from "../helpers/currencyFormat";
+import { Link } from "react-router-dom";
 import {
   removeFromCart,
   AddMoreSameItemInCart,
@@ -89,7 +90,9 @@ export class Cart extends Component {
             </button>
           </div>
         ) : (
-          "No Items"
+          <Link to='/'>
+            <button className='btn btn-primary'>Return to Home page</button>
+          </Link>
         )}
       </div>
     );
