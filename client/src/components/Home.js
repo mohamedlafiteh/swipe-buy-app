@@ -24,7 +24,11 @@ class Home extends Component {
 
         <div className='container'>
           <Link to='/item-form'>
-            <button type='button' class='btn btn-primary'>
+            <button
+              type='button'
+              class='btn btn-primary'
+              style={{ marginTop: "20px" }}
+            >
               Add Item for Sale
             </button>
           </Link>
