@@ -13,6 +13,7 @@ import AddAdvertForm from "./components/AddAdvertForm";
 import Categories from "./components/Categories";
 import About from "./components/About";
 import ContactUs from "./components/ContactUs";
+import AddItemForm from "./components/AddItemForm";
 
 import "./App.css";
 class App extends React.Component {
@@ -40,7 +41,7 @@ class App extends React.Component {
               <Route exact path='/' component={Home} />
               <Route exact path='/admin' component={Admin} />
               <Route exact path='/products/:id' component={Details} />
-
+              <Route exact path='/item-form' component={AddItemForm} />
               <Route exact path='/cart' component={Cart} />
               <Route exact path='/add-advert' component={AddAdvertForm} />
               <Route exact path='/about' component={About} />

@@ -7,6 +7,7 @@ import ".././styles/home.css";
 import { filterByCategory } from "../helpers/filterByCategory";
 import { priceSort } from "../helpers/priceSort";
 import { searchFilter } from "../helpers/searchFilter";
+import { Link } from "react-router-dom";
 
 class Home extends Component {
   componentDidMount() {
@@ -22,6 +23,12 @@ class Home extends Component {
         <MainSlider />
 
         <div className='container'>
+          <Link to='/item-form'>
+            <button type='button' class='btn btn-primary'>
+              Add Item for Sale
+            </button>
+          </Link>
+
           <div className='row'>
             {products.map((product, index) => {
               return <HomePageProduct key={index} product={product} />;
